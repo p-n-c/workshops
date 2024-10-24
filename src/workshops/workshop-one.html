@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Workshop one: an introduction to writing accessible HTML and CSS fundamentals"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Workshop one: HTML & CSS</title>
+  </head>
+  <body class="body">
+    <header>
+      <h1>Workshop one: HTML & CSS</h1>
+    </header>
+    <main class="main">
+      <h2>Overview</h2>
+      <p>
+        To begin, you need a development environment that, once set up, will let
+        you experiment freely with
+        <abbr title="Hypertext Markup Language">HTML</abbr> and
+        <abbr title="Cascading Style Sheets">CSS</abbr>.
+      </p>
+      <p>Therefore, let's:</p>
+      <ul>
+        <li>
+          Set up a work environment using
+          <a href="https://code.visualstudio.com/download">VS Code</a>
+        </li>
+        <li>
+          Clone a repo using Git and the
+          <abbr title="Command-line interface">CLI</abbr>
+        </li>
+        <li>Learn how to create a website from a template</li>
+        <li>Run the web site locally on your machine</li>
+      </ul>
+      <h2>Semantic HTML</h2>
+      <p>
+        We begin with a simple page and a few HTML elements to give it
+        structure.
+      </p>
+      <p>
+        These are <code>header</code>, <code>nav</code>, <code>main</code>,
+        <code>article</code>, <code>aside</code> and <code>footer</code>.
+      </p>
+      <p>
+        These elements were introduced to provide native support for
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role"
+          >ARIA landmark roles</a
+        >
+        which help visitors using screen readers navigate web pages more easily.
+        But these semantic elements benefit everyone. Good semantics - using
+        HTML elements correctly - give developers and designers more control and
+        greater confidence over how their pages will be perceived by visitors on
+        different devices and at different screen sizes.
+      </p>
+      <p>The best way to learn how to use semantic HTML is to write it.</p>
+      <ul>
+        <li>Create a simple page using the elements referred to above</li>
+        <li>Check that they are valid using a screen reader</li>
+        <li>
+          Consider the example below of how to write HTML poorly, that is with
+          bad semantics
+        </li>
+      </ul>
+      <p>Bad semantics is common but it's not too hard to avoid.</p>
+      <h2>Supporting materials</h2>
+      <p>A simple page with good structure:</p>
+      <ul>
+        <li>
+          <a href="/src/workshops/examples/simple-page-strucrure.html"
+            >Simple page structure</a
+          >
+        </li>
+      </ul>
+      <p>
+        Examples of good and bad semantics from mdn's
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML"
+          ><abbr title="Hypertext Markup Language">HTML</abbr>: A good basis for
+          accessibility</a
+        >
+      </p>
+      <ul>
+        <li>
+          <a href="/src/workshops/examples/good-semantics.html"
+            >Good semantics</a
+          >
+        </li>
+        <li>
+          <a href="/src/workshops/examples/bad-semantics.html">Bad semantics</a>
+        </li>
+      </ul>
+      <p>
+        An example of good Page Structure from the W3C's
+        <abbr title="Web Accessibility Initiative">WAI</abbr> tutorial on
+        writing, designing, and developing for accessibility.
+      </p>
+      <ul>
+        <li>
+          <a href="/src/workshops/examples/page-structure.html"
+            >Page Structure</a
+          >
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <nav aria-label="Primary">
+        <a class="local" href="/src/sitemap.html">Human-readable sitemap</a>
+      </nav>
+    </footer>
+  </body>
+</html>
