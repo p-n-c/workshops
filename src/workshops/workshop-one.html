@@ -17,8 +17,8 @@
     <main class="main">
       <h2>Overview</h2>
       <p>
-        To begin, you need a development environment that, once set up, will let
-        you experiment freely with
+        To get started you need a development environment that, once set up,
+        will let you experiment freely with
         <abbr title="Hypertext Markup Language">HTML</abbr> and
         <abbr title="Cascading Style Sheets">CSS</abbr>.
       </p>
@@ -29,7 +29,9 @@
           <a href="https://code.visualstudio.com/download">VS Code</a>
         </li>
         <li>
-          Clone a repo using Git and the
+          Clone a
+          <a href="https://github.com/p-n-c/web-template-generator">repo</a>
+          using Git and the
           <abbr title="Command-line interface">CLI</abbr>
         </li>
         <li>Learn how to create a website from a template</li>
@@ -51,26 +53,74 @@
           >ARIA landmark roles</a
         >
         which help visitors using screen readers navigate web pages more easily.
-        But these semantic elements benefit everyone. Good semantics - using
-        HTML elements correctly - give developers and designers more control and
-        greater confidence over how their pages will be perceived by visitors on
-        different devices and at different screen sizes.
+        But these semantic elements benefit everyone. When developers and
+        designers pay attention to good semantics - using HTML elements
+        correctly - they can be confident their pages will be understood by
+        visitors on different devices including
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screen_readers"
+          >screen readers</a
+        >.
       </p>
-      <p>The best way to learn how to use semantic HTML is to write it.</p>
+      <p>The best way to learn semantic HTML is to write it.</p>
       <ul>
         <li>Create a simple page using the elements referred to above</li>
         <li>Check that they are valid using a screen reader</li>
         <li>
-          Consider the example below of how to write HTML poorly, that is with
-          bad semantics
+          Consider the example of how to write HTML poorly using
+          <a href="/src/workshops/examples/bad-semantics.html" target="_blank"
+            >bad semantics</a
+          >
         </li>
       </ul>
-      <p>Bad semantics is common but it's not too hard to avoid.</p>
+      <p>
+        Bad semantics is common but it's not too hard to avoid. There are
+        <a class="local" href="#accessibility-tools">tools</a> you can use to
+        check your pages.
+      </p>
+      <h3>Benefits of writing semantic HTML</h3>
+      <ul>
+        <li>Accessible by more people on different devices</li>
+        <li>Code that is easier to understand</li>
+        <li>
+          Likely results in lighter file sizes which increases performance and
+          reduces emissions
+        </li>
+        <li>
+          Good for SEO (search engines give more weight to keywords inside
+          headings, etc.)
+        </li>
+      </ul>
+      <h3>AI</h3>
+      <p>
+        <abbr title="Large language models">LLMs</abbr> such as
+        <a href="https://claude.ai/new">Claude</a> and
+        <a href="https://chat.openai.com/">ChatGPT</a> can check code.
+        Alternatively, prompt them to generate the pages you need.
+      </p>
+      <aside>
+        <h3>Prompt example</h3>
+        <p>
+          I would like you to create index.html and styles.css files. The HTML
+          page should contain a header, footer and a main which contains an
+          article and two asides (one for a table of contents - TOC - for the
+          article, the other for links to related articles).
+        </p>
+        <p>
+          I would like the TOC to move above the article on smaller screens, and
+          the related articles to move below. Please add basic layout styling
+          e.g. padding, margins. Use the default fonts. Use variables for
+          repeating css statements, e.g. --padding. Use rems for units. Please
+          use a grid layout with grid areas.
+        </p>
+      </aside>
       <h2>Supporting materials</h2>
       <p>A simple page with good structure:</p>
       <ul>
         <li>
-          <a href="/src/workshops/examples/simple-page-strucrure.html"
+          <a
+            href="/src/workshops/examples/simple-page-strucrure.html"
+            target="_blank"
             >Simple page structure</a
           >
         </li>
@@ -85,25 +135,98 @@
       </p>
       <ul>
         <li>
-          <a href="/src/workshops/examples/good-semantics.html"
+          <a href="/src/workshops/examples/good-semantics.html" target="_blank"
             >Good semantics</a
           >
         </li>
         <li>
-          <a href="/src/workshops/examples/bad-semantics.html">Bad semantics</a>
+          <a href="/src/workshops/examples/bad-semantics.html" target="_blank"
+            >Bad semantics</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://mdn.github.io/learning-area/accessibility/html/table-layout.html"
+            >Bad page layout</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://mdn.github.io/learning-area/html/introduction-to-html/document_and_website_structure/"
+            >Good page layout</a
+          >
         </li>
       </ul>
       <p>
-        An example of good Page Structure from the W3C's
+        An example of good page structure from the W3C's
         <abbr title="Web Accessibility Initiative">WAI</abbr> tutorial on
         writing, designing, and developing for accessibility.
       </p>
       <ul>
         <li>
-          <a href="/src/workshops/examples/page-structure.html"
+          <a href="/src/workshops/examples/page-structure.html" target="_blank"
             >Page Structure</a
           >
         </li>
+      </ul>
+      <h3 id="accessibility-tools">Accessibility tools</h3>
+      <ul>
+        <li>
+          Chrome extension
+          <a
+            href="https://chromewebstore.google.com/detail/html-schema-generator-by/eppjelahjidcpgepiaopkjgkmeldhkaf"
+            >accessibility schema</a
+          >
+          from People and Code
+        </li>
+        <li>
+          <abbr title="Web Accessibility Evaluation">WAVE</abbr>
+          <a href="https://wave.webaim.org/extension/">browser extensions</a>
+        </li>
+        <li>
+          A longer
+          <a href="https://www.the-public-good.com/accessibility"
+            >list of accessibility tools</a
+          >
+        </li>
+      </ul>
+      <h2>Appendix</h2>
+      <p>
+        When developers talk about the Terminal, the command-line, BASH, shell,
+        the CLI they are referring to one thing: the application that let's you
+        give instructions to the operating system.
+      </p>
+      <p>
+        On a mac - whose operating system is macOS - this application is
+        Terminal. When you open the Terminal, you are in the home directory (or
+        folder, it's the same thing).
+      </p>
+      <h3>Command-line instructions</h3>
+      <dl>
+        <dt><code>li</code></dt>
+        <dd>List the files in the current directory</dd>
+        <dt><code>cd ..</code></dt>
+        <dd>Go to the directory above</dd>
+        <dt><code>cd { name of a listed directory }</code></dt>
+        <dd>Go into the named directory</dd>
+        <dt><code>cd ~</code></dt>
+        <dd>Return to the home directory</dd>
+      </dl>
+      <h3>How to launch (open) VS Code from the command line (Terminal)</h3>
+      <p>
+        In order to
+        <a
+          href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line"
+        >
+          open the current project from the command line in VS Code on a mac </a
+        >:
+      </p>
+      <ul>
+        <li>Open VS Code</li>
+        <li>Type <code>Command + Shift + P</code></li>
+        <li>Type <code>shell command</code></li>
+        <li>Select <code>Install 'code' command in PATH </code></li>
+        <li>Restart Terminal</li>
       </ul>
     </main>
     <footer>
