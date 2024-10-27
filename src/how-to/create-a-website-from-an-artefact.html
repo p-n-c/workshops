@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How to create a web page based on an artefact (screen shot of a page) using Claude AI"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Create a website from an artefact</title>
+  </head>
+  <body class="body">
+    <header>
+      <h1>Create a website from an artefact</h1>
+    </header>
+    <main class="main">
+      <article>
+        <p>
+          It is possible for Claude to create code from a visual prompt. The
+          artefact used was a screen shot of an app running in the browser.
+        </p>
+        <img
+          src="/src/how-to/images/artefact.png"
+          alt="A simple web page showing rails left and right for table of contents and related articles, a central area for an article, and a header and a footer."
+        />
+        <p>The written prompt was minimal:</p>
+        <blockquote>
+          Can you please create a website (index.html and style.css) that will
+          generate a page that matches the attached artefact.
+          <p><em>Prompt by Code and People</em></p>
+        </blockquote>
+        <h2>Claude's reasoning</h2>
+        <blockquote>
+          <p>
+            I'll help you create a website that matches the layout shown in the
+            image. I'll create a clean, modern design that includes the article
+            title, table of contents, main article content, and related articles
+            sections.
+          </p>
+          <p>
+            I've created a responsive webpage that matches the layout in the
+            image with some key features:
+          </p>
+          <ol>
+            <li>Three-column layout with CSS Grid</li>
+            <li>Clean, modern design with subtle shadows and borders</li>
+            <li>
+              Responsive design that switches to a single column on mobile
+              devices
+            </li>
+            <li>Clickable table of contents and related articles sections</li>
+            <li>Consistent typography and spacing</li>
+            <li>Footer with copyright information</li>
+            <li>
+              Subtle hover effects on links Light shadow effects for depth
+            </li>
+          </ol>
+          <p>Would you like me to modify anything about the design? I can:</p>
+          <ul>
+            <li>Adjust the colors or spacing</li>
+            <li>Add more interactive features</li>
+            <li>Modify the responsive behavior</li>
+            <li>Add additional styling elements</li>
+          </ul>
+          <p><em>Response by Claude (Sonnet 3.5)</em></p>
+        </blockquote>
+        <p>
+          The working code can be seen in the
+          <a href="https://github.com/p-n-c/claude-artefact-demo"
+            >AI artefact demo repo</a
+          >.
+        </p>
+      </article>
+      <h2>Appendix</h2>
+      <p>
+        Claude's response and
+        <a href="https://github.com/p-n-c/claude-artefact-demo">HTML and CSS</a
+        >.
+      </p>
+      <h2>Further reading</h2>
+      <ul>
+        <li>
+          <a href="https://simonwillison.net/2024/Oct/21/claude-artifacts/"
+            >Everything I built with Claude Artifacts this week</a
+          >
+          <p><em>Simon Willison’s Weblog</em></p>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <nav aria-label="Primary">
+        <a class="local" href="/src/sitemap.html">Human-readable sitemap</a>
+      </nav>
+    </footer>
+  </body>
+</html>
