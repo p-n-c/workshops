@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How to set up a development environment on VS Code and create a website from a template"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Create a website from a template</title>
+  </head>
+  <body class="body">
+    <header>
+      <h1>Create a website from a template</h1>
+      <p>
+        We will learn how to set up a developer environment and create a website
+        using VS Code, Git, GitHub, and the P&C web project generator.
+      </p>
+      <p>
+        <div><em>Style: guided</em></div>
+        <div><em>Time: 30 minutes</em></div>
+    </p>
+    </header>
+    <main class="main">
+      <article>
+        <h2>Set up VS Code</h2>
+        <p>
+          To work with <abbr title="Hypertext Markup Language">HTML</abbr> and
+          <abbr title="Cascading Style Sheets">CSS</abbr> you need a development
+          environment - a place to write code - and a way to run that code in the
+          browser.
+        </p>
+        <p>
+          We're going to do that by cloning (copying) a website generator using
+          written instructions. When we run the generator, it will ask us a few
+          questions. Based on our answers, it will create a website we can edit
+          and deploy using VS Code.
+        </p>
+        <p>
+          We use <abbr title="Hypertext Markup Language">HTML</abbr> to structure
+          our content, and <abbr title="Cascading Style Sheets">CSS</abbr> to
+          style it.
+        </p>
+        <p>Let's begin:</p>
+        <ul>
+          <li>
+            Install
+            <a href="https://code.visualstudio.com/download">VS Code</a>
+          </li>
+          <li>
+            Open the Terminal app and clone the
+            <a href="https://github.com/p-n-c/web-template-generator"
+              >web template generator</a
+            >
+            using Git.
+          </li>
+          <li>
+            Run <code>create-web-project</code> to create a website from a
+            template
+          </li>
+          <li>Open the new site in VS Code and edit it</li>
+          <li>
+            Type and enter <code>npm run start</code> in the Terminal to run it in
+            the browser
+          </li>
+          <li>Open the Terminal and then click on <code>Server running at http://localhost:1234</code> while hold the command button</li>
+        </ul>
+        <p>The website is now running in the browser. If you change either the HTML or CSS, and save, the website will automatically update.</p>
+        <hr>
+        <p><strong>You now have the development environment required for <a class="local" href="/src/workshops/workshop-one.html">Workshop One</a>.</strong></p>
+        <hr>
+        <h3>The Terminal</h3>
+        <p>
+          When developers talk about the Terminal, the command-line,
+          <abbr title="Bourne-Again SHell">BASH</abbr>, shell, or the
+          <abbr title="Command line interface">CLI</abbr> they are referring to
+          one thing: the application used to give instructions to the operating
+          system.
+        </p>
+        <p>
+          The terminal is the place where you enter commands/instructions. The
+          shell (program) is the set of instructions you can give to the operating
+          system. The two are used synonymously.
+        </p>
+        <p>
+          For more the history of the
+          <abbr title="Command line interface">CLI</abbr> and the terminal,
+          <abbr title="Mozilla Developer Network">MDN</abbr> has a
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
+            >Command line crash course</a
+          >.
+        </p>
+        <p>
+          On a mac - whose operating system is macOS - this application is
+          Terminal. Terminal opens in the home directory (or folder, it's the same
+          thing). You can confirm this by writing <code>ls</code> which instructs
+          the computer to list the directories (or folders) and files in the
+          current directory.
+        </p>
+        <h3>Command-line instructions</h3>
+        <dl>
+          <dt><code>ls</code></dt>
+          <dd>List the files in the current directory</dd>
+          <dt><code>cd ..</code></dt>
+          <dd>Go to the directory above</dd>
+          <dt><code>cd { name of a listed directory }</code></dt>
+          <dd>Go into the named directory</dd>
+          <dt><code>cd ~</code></dt>
+          <dd>Return to the home directory</dd>
+        </dl>
+      </article>
+      <h2>Appendix</h2>
+      <h3>Terms</h3>
+      <dl>
+        <dt>Git</dt>
+        <dd>
+          Software that keeps track of changes to folders, files and their
+          content.
+        </dd>
+      </dl>
+      <dl>
+        <dt>GitHub</dt>
+        <dd>
+          A site that stores projects and tools for editing them according to
+          Git source control practices (i.e. remembering changes).
+        </dd>
+      </dl>
+      <h3>How to install Git</h3>
+      <p>
+        In Terminal, type <code>git --version</code>. If you don't have Git
+        installed, follow the instructions.
+      </p>
+      <p>
+        MDN has an introduction to
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/GitHub"
+          >Git and GitHub</a
+        >.
+      </p>
+      <dl>
+        <dt>CLI</dt>
+        <dd>
+          The Command line interface is the generic term for the application
+          where you write operating system instructions.
+        </dd>
+      </dl>
+      <p>
+        On a mac, the command line is accessed using the Terminal application.
+      </p>
+      <dl>
+        <dt>GUI</dt>
+        <dd>
+          Applications like VS Code that have interactive graphics are graphical
+          user interfaces.
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>BASH</dt>
+        <dd>
+          (Bourne-Again SHell) is a scripting language for writing shell
+          commands (<code>li</code> is one such command). For many years, it was
+          the default shell script for macs.
+        </dd>
+      </dl>
+      <dl>
+        <dt>zsh</dt>
+        <dd>
+          z-shell is another scripting language. It has replaced BASH as the
+          default shell on macOS.
+        </dd>
+      </dl>
+      <h3>How to open VS Code from the command line</h3>
+      <p>
+        After creating a new website using the project generator, you're invited
+        to open it using the command line instruction <code>code .</code>
+      </p>
+      <p>
+        In order to
+        <a
+          href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line"
+        >
+          open a project from the command line</a
+        >
+        in VS Code on a mac:
+      </p>
+      <ul>
+        <li>Open VS Code</li>
+        <li>Type <code>Command + Shift + P</code></li>
+        <li>Type <code>shell command</code></li>
+        <li>Select <code>Install 'code' command in PATH </code></li>
+        <li>Restart Terminal</li>
+      </ul>
+      <p>
+        Once you have cd'd into a project, you can open it in VS Code by typing
+        <code>code .</code>.
+      </p>
+      <p>The <code>.</code> means the current location.</p>
+    </main>
+    <footer>
+      <nav aria-label="Primary">
+        <a class="local" href="/src/sitemap.html">Human-readable sitemap</a>
+      </nav>
+    </footer>
+  </body>
+</html>
