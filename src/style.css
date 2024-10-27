@@ -51,6 +51,12 @@ cite {
   margin: calc(var(--d) * 4) 0;
 }
 
+cite *,
+code {
+  font-size: calc(var(--d) * 4);
+  line-height: 1.6;
+}
+
 pre {
   white-space: normal;
   background-color: var(--box-colour);
@@ -58,12 +64,10 @@ pre {
   padding: 1em;
   overflow-x: hidden;
   word-wrap: break-word;
-}
 
-cite *,
-code {
-  font-size: calc(var(--d) * 4);
-  line-height: 1.6;
+  & code {
+    display: block;
+  }
 }
 
 footer {
