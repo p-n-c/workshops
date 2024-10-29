@@ -72,7 +72,7 @@ pre {
 
 footer {
   position: fixed;
-  width: 65ch;
+  width: 75ch;
   height: calc(var(--d) * 20);
   bottom: 0;
   justify-content: center;
@@ -124,7 +124,7 @@ body {
 }
 
 .body {
-  max-width: 65ch;
+  max-width: 75ch;
   margin: auto;
   padding: 0 calc(var(--d) * 2);
   background-color: var(--bg-colour);
@@ -138,7 +138,7 @@ body {
 
 nav {
   width: calc((var(--w) * 100) - (var(--d) * 4));
-  max-width: 65ch;
+  max-width: 75ch;
   padding: calc(var(--d) * 2) 0;
   border-top: 2px solid var(--border-colour);
 }
@@ -339,4 +339,32 @@ dt {
   + :is(label)
   + :is(input) {
   margin-top: 0;
+}
+
+/* Grid examples */
+
+#grids {
+  .grid {
+    display: grid;
+    gap: calc(var(--d) * 2);
+
+    & > div {
+      border: 1px solid var(--border-colour);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .simple-grid .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .unequal-grid .grid {
+    grid-template-columns: 10fr 1fr 1fr;
+  }
+
+  .responsive-grid .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
