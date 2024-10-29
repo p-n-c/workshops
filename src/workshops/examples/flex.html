@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Example of how to use css flex to arrange items in rows or columns"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Page title</title>
+  </head>
+  <body id="flex" class="body">
+    <header>
+      <h1>CSS Flex examples</h1>
+    </header>
+    <main id="flex-example" class="main">
+      <p>
+        Flex is a one-dimensional layout method for arranging items in rows or
+        columns.
+      </p>
+      <p>This is a brief introduction, by way of example, to using flexbox. Flex is a synonym, or synecdoche, for flexbox.</p>
+      <blockquote cite="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Items flex (expand) to fill additional space or shrink to fit into smaller spaces.</blockquote>
+      <cite>From an introduction to <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> by <abbr title="Mozilla Developer Network">MDN</abbr>.</cite>
+      <h2>Flex examples</h2>
+      <p>The following examples all have the same HTML.</p>
+      <pre><code>&#x3C;div class=&#x22;flex&#x22;&#x3E;
+        &#x3C;div&#x3E;1&#x3C;/div&#x3E;
+        &#x3C;div&#x3E;2&#x3C;/div&#x3E;
+        &#x3C;div&#x3E;3&#x3C;/div&#x3E;
+      &#x3C;/div&#x3E;</code></pre>
+      <p>But their layout is determined by CSS.</p>
+      <section aria-labelledby="simple-flex" class="simple-flex">
+        <h3 id="simple-flex">Simple flex layout</h3>
+        <div class="flex">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <pre><code>display: flex;</code></pre>
+        <p>By default, the direction is set to <code>row</code>:</p>
+        <pre><code>flex-direction: row;</code></pre>
+      </section>
+      <section aria-labelledby="wrap-flex" class="wrap-flex">
+        <h3 id="wrap-flex">Wrap content</h3>
+        <div class="flex">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <pre><code>flex-wrap: wrap;</code></pre>
+        <p>
+          By default, the browser will fit all the boxes on one row, overriding
+          the fixed box length of 200px.
+        </p>
+        <p>
+          Applying <code>wrap</code> respects the box length, and pushes any
+          boxes that don't fit onto the next row.
+        </p>
+        <p>
+          Use the Chrome DevTools to narrow the width of the screen until you
+          see a change in the layout of the three boxes.
+        </p>
+      </section>
+      <section aria-labelledby="flex-justification" class="flex-justification">
+        <h3 id="flex-justification">Flex justification</h3>
+        <p>
+          The <code>justification</code> property determines spacing of boxes
+          horizontally along the row.
+        </p>
+        <h4>Start</h4>
+        <div class="flex start">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <h4>Centre</h4>
+        <div class="flex centre">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <h4>End</h4>
+        <div class="flex end">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <h4>Space around</h4>
+        <div class="flex space-around">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <h4>Space between</h4>
+        <div class="flex space-between">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <h4>Space evenly</h4>
+        <div class="flex space-evenly">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+      </section>
+      <section aria-labelledby="flex-direction" class="flex-columns">
+        <h3 id="flex-columns">Flex direction</h3>
+        <p>Flex can operate horizontally, in rows, or vertically, in columns.</p>
+        <pre><code>flex-direction: column;</code></pre>
+        <div class="flex flex-columns">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <h2>Related content</h2>
+        <ul>
+          <li>
+            <a class="local" href="/src/workshops/workshop-one.html"
+              >Workshop one: HTML & CSS</a
+            >
+          </li>
+        </ul>
+        <h2>Further reading</h2>
+        <ul>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"
+              >Flexbox (MDN)</a
+            >
+          </li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox_skills">Test your skills: Flexbox (MDN)</a></li>
+        </ul>
+    </main>
+    <footer>
+      <nav aria-label="Primary">
+        <a class="local" href="/src/sitemap.html">Human-readable sitemap</a>
+      </nav>
+    </footer>
+  </body>
+</html>

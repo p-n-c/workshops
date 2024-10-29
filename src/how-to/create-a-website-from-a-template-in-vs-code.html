@@ -93,46 +93,50 @@
           >
         </p>
         <hr />
-        <h3>The Terminal</h3>
-        <p>
-          When developers talk about the Terminal, the command-line,
-          <abbr title="Bourne-Again SHell">BASH</abbr>, shell, or the
-          <abbr title="Command line interface">CLI</abbr> they are referring to
-          one thing: the application used to give instructions to the operating
-          system.
-        </p>
-        <p>
-          The terminal is the place where you enter commands/instructions. The
-          shell (program) is the set of instructions you can give to the
-          operating system. The two are used synonymously.
-        </p>
-        <p>
-          For more the history of the
-          <abbr title="Command line interface">CLI</abbr> and the terminal,
-          <abbr title="Mozilla Developer Network">MDN</abbr> has a
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Command line crash course</a
-          >.
-        </p>
-        <p>
-          On a mac - whose operating system is macOS - this application is
-          Terminal. Terminal opens in the home directory (or folder, it's the
-          same thing). You can confirm this by writing <code>ls</code> which
-          instructs the computer to list the directories (or folders) and files
-          in the current directory.
-        </p>
-        <h3>Command-line instructions</h3>
-        <dl>
-          <dt><code>ls</code></dt>
-          <dd>List the files in the current directory</dd>
-          <dt><code>cd ..</code></dt>
-          <dd>Go to the directory above</dd>
-          <dt><code>cd { name of a listed directory }</code></dt>
-          <dd>Go into the named directory</dd>
-          <dt><code>cd ~</code></dt>
-          <dd>Return to the home directory</dd>
-        </dl>
+        <section aria-labelledby="the-terminal">
+          <h3 id="the-terminal">The Terminal</h3>
+          <p>
+            When developers talk about the Terminal, the command-line,
+            <abbr title="Bourne-Again SHell">BASH</abbr>, shell, or the
+            <abbr title="Command line interface">CLI</abbr> they are referring
+            to one thing: the application used to give instructions to the
+            operating system.
+          </p>
+          <p>
+            The terminal is the place where you enter commands/instructions. The
+            shell (program) is the set of instructions you can give to the
+            operating system. The two are used synonymously.
+          </p>
+          <p>
+            For more the history of the
+            <abbr title="Command line interface">CLI</abbr> and the terminal,
+            <abbr title="Mozilla Developer Network">MDN</abbr> has a
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
+              >Command line crash course</a
+            >.
+          </p>
+          <p>
+            On a mac - whose operating system is macOS - this application is
+            Terminal. Terminal opens in the home directory (or folder, it's the
+            same thing). You can confirm this by writing <code>ls</code> which
+            instructs the computer to list the directories (or folders) and
+            files in the current directory.
+          </p>
+        </section>
+        <section aria-labelledby="cli">
+          <h3 id="cli">Command-line instructions</h3>
+          <dl>
+            <dt><code>ls</code></dt>
+            <dd>List the files in the current directory</dd>
+            <dt><code>cd ..</code></dt>
+            <dd>Go to the directory above</dd>
+            <dt><code>cd { name of a listed directory }</code></dt>
+            <dd>Go into the named directory</dd>
+            <dt><code>cd ~</code></dt>
+            <dd>Return to the home directory</dd>
+          </dl>
+        </section>
       </article>
       <h2>Related content</h2>
       <ul>
@@ -143,92 +147,99 @@
         </li>
       </ul>
       <h2>Appendix</h2>
-      <h3>Terms</h3>
-      <dl>
-        <dt>Git</dt>
-        <dd>
-          Software that keeps track of changes to folders, files and their
-          content.
-        </dd>
-      </dl>
-      <dl>
-        <dt>GitHub</dt>
-        <dd>
-          A site that stores projects and tools for editing them according to
-          Git source control practices (i.e. remembering changes).
-        </dd>
-      </dl>
-      <h3>How to install Git</h3>
-      <p>
-        In Terminal, type <code>git --version</code>. If you don't have Git
-        installed, follow the instructions.
-      </p>
-      <p>
-        MDN has an introduction to
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/GitHub"
-          >Git and GitHub</a
-        >.
-      </p>
-      <dl>
-        <dt>CLI</dt>
-        <dd>
-          The Command line interface is the generic term for the application
-          where you write operating system instructions.
-        </dd>
-      </dl>
-      <p>
-        On a mac, the command line is accessed using the Terminal application.
-      </p>
-      <dl>
-        <dt>GUI</dt>
-        <dd>
-          Applications like VS Code that have interactive graphics are graphical
-          user interfaces.
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>BASH</dt>
-        <dd>
-          (Bourne-Again SHell) is a scripting language for writing shell
-          commands (<code>li</code> is one such command). For many years, it was
-          the default shell script for macs.
-        </dd>
-      </dl>
-      <dl>
-        <dt>zsh</dt>
-        <dd>
-          z-shell is another scripting language. It has replaced BASH as the
-          default shell on macOS.
-        </dd>
-      </dl>
-      <h3>How to open VS Code from the command line</h3>
-      <p>
-        After creating a new website using the project generator, you're invited
-        to open it using the command line instruction <code>code .</code>
-      </p>
-      <p>
-        In order to
-        <a
-          href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line"
-        >
-          open a project from the command line</a
-        >
-        in VS Code on a mac:
-      </p>
-      <ul>
-        <li>Open VS Code</li>
-        <li>Type <code>Command + Shift + P</code></li>
-        <li>Type <code>shell command</code></li>
-        <li>Select <code>Install 'code' command in PATH </code></li>
-        <li>Restart Terminal</li>
-      </ul>
-      <p>
-        Once you have cd'd into a project, you can open it in VS Code by typing
-        <code>code .</code>.
-      </p>
-      <p>The <code>.</code> means the current location.</p>
+      <section aria-labelledby="terms">
+        <h3 id="terms">Terms</h3>
+        <dl>
+          <dt>Git</dt>
+          <dd>
+            Software that keeps track of changes to folders, files and their
+            content.
+          </dd>
+        </dl>
+        <dl>
+          <dt>GitHub</dt>
+          <dd>
+            A site that stores projects and tools for editing them according to
+            Git source control practices (i.e. remembering changes).
+          </dd>
+        </dl>
+      </section>
+      <section aria-labelledby="how-to-install-git">
+        <h3 id="how-to-install-git">How to install Git</h3>
+        <p>
+          In Terminal, type <code>git --version</code>. If you don't have Git
+          installed, follow the instructions.
+        </p>
+        <p>
+          MDN has an introduction to
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/GitHub"
+            >Git and GitHub</a
+          >.
+        </p>
+        <dl>
+          <dt>CLI</dt>
+          <dd>
+            The Command line interface is the generic term for the application
+            where you write operating system instructions.
+          </dd>
+        </dl>
+        <p>
+          On a mac, the command line is accessed using the Terminal application.
+        </p>
+        <dl>
+          <dt>GUI</dt>
+          <dd>
+            Applications like VS Code that have interactive graphics are
+            graphical user interfaces.
+          </dd>
+        </dl>
+        <dl>
+          <dt>BASH</dt>
+          <dd>
+            (Bourne-Again SHell) is a scripting language for writing shell
+            commands (<code>li</code> is one such command). For many years, it
+            was the default shell script for macs.
+          </dd>
+        </dl>
+        <dl>
+          <dt>zsh</dt>
+          <dd>
+            z-shell is another scripting language. It has replaced BASH as the
+            default shell on macOS.
+          </dd>
+        </dl>
+      </section>
+      <section aria-labelledby="open-cs-code">
+        <h3 id="open-cs-code">How to open VS Code from the command line</h3>
+        <p>
+          After creating a new website using the project generator, you're
+          invited to open it using the command line instruction
+          <code>code .</code>
+        </p>
+        <p>
+          In order to
+          <a
+            href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line"
+          >
+            open a project from the command line</a
+          >
+          in VS Code on a mac:
+        </p>
+        <ul>
+          <li>Open VS Code</li>
+          <li>Type <code>Command + Shift + P</code></li>
+          <li>Type <code>shell command</code></li>
+          <li>Select <code>Install 'code' command in PATH </code></li>
+          <li>Restart Terminal</li>
+        </ul>
+        <p>
+          Once you have cd'd into a project, you can open it in VS Code by
+          typing
+          <code>code .</code>.
+        </p>
+        <p>The <code>.</code> means the current location.</p>
+      </section>
     </main>
     <footer>
       <nav aria-label="Primary">
