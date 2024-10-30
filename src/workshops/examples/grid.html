@@ -16,83 +16,92 @@
     </header>
     <main id="grid-example" class="main">
       <p>The grid layout is a two-dimensional layout system.</p>
-      <h2>Grid examples</h2>
-      <p>The following grids all have the same HTML.</p>
-      <pre><code>&#x3C;div class=&#x22;grid&#x22;&#x3E;
-        &#x3C;div&#x3E;1&#x3C;/div&#x3E;
-        &#x3C;div&#x3E;2&#x3C;/div&#x3E;
-        &#x3C;div&#x3E;3&#x3C;/div&#x3E;
-      &#x3C;/div&#x3E;</code></pre>
-      <p>But their layout is determined by CSS.</p>
-      <section aria-labelledby="simple-grid" class="simple-grid">
-        <h3 id="simple-grid">Simple grid layout</h3>
-        <div class="grid">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
-        <pre><code>grid-template-columns: 1fr 1fr 1fr;</code></pre>
-        <p>Which can also be written:</p>
-        <pre><code>grid-template-columns: repeat(3, 1fr);</code></pre>
-        <p>
-          <code>fr</code> simply means a fraction of the whole. So this
-          instruction reads, "<em>repeat a single unit of fr three times</em>".
-        </p>
-        <p>
-          Since the fractions are the same, 10fr or 100fr are both valid, and
-          would have the same effect.
-        </p>
+      <section aria-labelledby="grid-examples">
+        <h2 id="grid-examples">Grid examples</h2>
+        <p>The following grids all have the same HTML.</p>
+        <pre><code>&#x3C;div class=&#x22;grid&#x22;&#x3E;
+          &#x3C;div&#x3E;1&#x3C;/div&#x3E;
+          &#x3C;div&#x3E;2&#x3C;/div&#x3E;
+          &#x3C;div&#x3E;3&#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;</code></pre>
+        <p>But their layout is determined by CSS.</p>
+        <section aria-labelledby="simple-grid" class="simple-grid">
+          <h3 id="simple-grid">Simple grid layout</h3>
+          <div class="grid">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+          </div>
+          <pre><code>grid-template-columns: 1fr 1fr 1fr;</code></pre>
+          <p>Which can also be written:</p>
+          <pre><code>grid-template-columns: repeat(3, 1fr);</code></pre>
+          <p>
+            <code>fr</code> simply means a fraction of the whole. So this
+            instruction reads, "<em>repeat a single unit of fr three times</em
+            >".
+          </p>
+          <p>
+            Since the fractions are the same, 10fr or 100fr are both valid, and
+            would have the same effect.
+          </p>
+        </section>
+        <section aria-labelledby="unequal-grid" class="unequal-grid">
+          <h3 id="unequal-grid">Unequal grid layout</h3>
+          <div class="grid">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+          </div>
+          <pre><code>grid-template-columns: 10fr 1fr 1fr;</code></pre>
+          <p>
+            This instruction reads, "<em
+              >make the first box 10 units long and the next two 1 each </em
+            >".
+          </p>
+        </section>
+        <section aria-labelledby="responsive-grid" class="responsive-grid">
+          <h3 id="responsive-grid">Responsive grid layout</h3>
+          <div class="grid">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+          </div>
+          <pre><code>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</code></pre>
+          <p>
+            Which means, "<em
+              >fit in as many boxes on a row as possible, so long as they are at
+              least 200px wide </em
+            >". Use the Chrome DevTools to narrow the width of the screen until
+            you see a change in the layout of the three boxes.
+          </p>
+        </section>
       </section>
-      <section aria-labelledby="unequal-grid" class="unequal-grid">
-        <h3 id="unequal-grid">Unequal grid layout</h3>
-        <div class="grid">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
-        <pre><code>grid-template-columns: 10fr 1fr 1fr;</code></pre>
-        <p>
-          This instruction reads, "<em
-            >make the first box 10 units long and the next two 1 each </em
-          >".
-        </p>
+      <section aria-labelledby="related-content">
+        <h2 id="related-content">Related content</h2>
+        <nav aria-label="workshops">
+          <ul>
+            <li>
+              <a class="local" href="/src/workshops/workshop-one.html"
+                >Workshop one: HTML & CSS</a
+              >
+            </li>
+          </ul>
+        </nav>
       </section>
-      <section aria-labelledby="responsive-grid" class="responsive-grid">
-        <h3 id="responsive-grid">Responsive grid layout</h3>
-        <div class="grid">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
-        <pre><code>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</code></pre>
-        <p>
-          Which means, "<em
-            >fit in as many boxes on a row as possible, so long as they are at
-            least 200px wide </em
-          >". Use the Chrome DevTools to narrow the width of the screen until
-          you see a change in the layout of the three boxes.
-        </p>
+      <section aria-labelledby="further-reading">
+        <h2 id="further-reading">Further reading</h2>
+        <ul>
+          <li>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
+              >Grids (MDN)</a
+            >
+          </li>
+          <li>
+            <a href="https://gridbyexample.com/examples/">Grid by Example</a>
+          </li>
+        </ul>
       </section>
-      <h2>Related content</h2>
-      <ul>
-        <li>
-          <a class="local" href="/src/workshops/workshop-one.html"
-            >Workshop one: HTML & CSS</a
-          >
-        </li>
-      </ul>
-      <h2>Further reading</h2>
-      <ul>
-        <li>
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
-            >Grids (MDN)</a
-          >
-        </li>
-        <li>
-          <a href="https://gridbyexample.com/examples/">Grid by Example</a>
-        </li>
-      </ul>
     </main>
     <footer>
       <nav aria-label="Primary">

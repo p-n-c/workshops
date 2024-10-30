@@ -32,119 +32,126 @@
     </header>
     <main class="main">
       <article>
-        <h2>Overview</h2>
-        <p>
-          - Before starting this workshop, check you have the
-          <a
-            class="local"
-            href="/src/how-to/create-a-website-from-a-template-in-vs-code.html"
-            >requisite tools and setup</a
-          >.
-        </p>
-        <p>- By the end of this workshop, you will be able to:</p>
-        <ul>
-          <li>Create semantically correct HTML pages</li>
-          <li>Validate HTML accessibility</li>
-          <li>Implement basic CSS Grid layouts</li>
-          <li>Use AI tools to assist development</li>
-        </ul>
-        <h2>Semantic HTML</h2>
-        <p>
-          Before we consider how a page looks, we must make sense of it. If it
-          is an article, we break it down into sections and paragraphs and use
-          headers to group ideas. We might also provide a table of contents and
-          links to related articles.
-        </p>
-        <p>
-          If it is an app, we will need to control the flow of information or
-          data and provide assistance (search, dropdown menus, help). We will
-          attribute meaning to every part of the app.
-        </p>
-        <p>
-          A page or app that is semantically correct will be organised in a way
-          that can be interpreted by a
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screen_readers"
-            >screen reader</a
-          >, a browser, a tool scraping for SEO information, an AI avatar, or
-          any other device that can interpret HTML.
-        </p>
-        <p>
-          Only once we have established a consistent logic (the meaning and
-          purpose of each part and the whole) should we consider its visual
-          presentation.
-        </p>
-        <section aria-labelledby="html-structure">
-          <h3 id="html-structure">HTML structure</h3>
+        <section aria-labelledby="overview">
+          <h2 id="overview">Overview</h2>
           <p>
-            An HTML page is made up of elements. Among the initial elements were
-            <code>p</code> which stands for paragraph and <code>div</code> which
-            is an all-purpose element used for grouping elements and layout. We
-            will return to <code>div</code> later.
-          </p>
-          <p>
-            Have a read through the complete
-            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
-              >list of elements</a
-            >. These are native components that have been fully tested and are
-            accessible. They are actively supported by all browsers.
-          </p>
-          <p>
-            Over time, patterns emerged in the solutions developers and
-            designers used to solve common problems. One of these problems was
-            navigation. To encourage consistency, and to simplify HTML, a set of
+            - Before starting this workshop, check you have the
             <a
-              href="https://developer.chrome.com/docs/lighthouse/accessibility/use-landmarks/"
-            >
-              landmark elements
-            </a>
-            was introduced.
+              class="local"
+              href="/src/how-to/create-a-website-from-a-template-in-vs-code.html"
+              >requisite tools and setup</a
+            >.
           </p>
-          <p>
-            In addition to improving code quality, these elements provided
-            native support for
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role"
-              >ARIA landmark roles</a
-            >. Roles help visitors using screen readers navigate web pages more
-            easily. The intention was to make HTML 5 conform to more rigorous
-            standards.
-          </p>
-          <h4>ARIA Landmarks</h4>
-          <div class="cols">
-            <div>aside</div>
-            <div>footer</div>
-            <div>form</div>
-            <div>header</div>
-            <div>main</div>
-            <div>nav</div>
-            <div>section</div>
-          </div>
-        </section>
-        <section aria-labelledby="benefits-of-semantic-html">
-          <h3 id="benefits-of-semantic-html">
-            Benefits of writing semantic HTML
-          </h3>
-          <p>
-            Good markup benefits everyone. When developers and designers pay
-            attention to good semantics - using HTML elements correctly - they
-            can be confident their pages will be understood by visitors on
-            different devices, including screen readers.
-          </p>
-          <p>Benefits of semantic HTML:</p>
+          <p>- By the end of this workshop, you will be able to:</p>
           <ul>
-            <li>Accessible by more people on different devices</li>
-            <li>Code that is easier to understand</li>
-            <li>
-              Likely results in lighter file sizes which increases performance
-              and reduces emissions
-            </li>
-            <li>
-              Good for SEO (search engines give more weight to keywords inside
-              headings, etc.)
-            </li>
-            <li>Interpretable in future devices and environments</li>
+            <li>Create semantically correct HTML pages</li>
+            <li>Validate HTML accessibility</li>
+            <li>Implement basic CSS Grid layouts</li>
+            <li>Use AI tools to assist development</li>
           </ul>
+        </section>
+        <section aria-labelledby="semantic-html">
+          <h2 id="semantic-html">Semantic HTML</h2>
+          <p>
+            Before we consider how a page looks, we must make sense of it. If it
+            is an article, we break it down into sections and paragraphs and use
+            headers to group ideas. We might also provide a table of contents
+            and links to related articles.
+          </p>
+          <p>
+            If it is an app, we will need to control the flow of information or
+            data and provide assistance (search, dropdown menus, help). We will
+            attribute meaning to every part of the app.
+          </p>
+          <p>
+            A page or app that is semantically correct will be organised in a
+            way that can be interpreted by a
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screen_readers"
+              >screen reader</a
+            >, a browser, a tool scraping for SEO information, an AI avatar, or
+            any other device that can interpret HTML.
+          </p>
+          <p>
+            Only once we have established a consistent logic (the meaning and
+            purpose of each part and the whole) should we consider its visual
+            presentation.
+          </p>
+          <section aria-labelledby="html-structure">
+            <h3 id="html-structure">HTML structure</h3>
+            <p>
+              An HTML page is made up of elements. Among the initial elements
+              were
+              <code>p</code> which stands for paragraph and
+              <code>div</code> which is an all-purpose element used for grouping
+              elements and layout. We will return to <code>div</code> later.
+            </p>
+            <p>
+              Have a read through the complete
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
+                >list of elements</a
+              >. These are native components that have been fully tested and are
+              accessible. They are actively supported by all browsers.
+            </p>
+            <p>
+              Over time, patterns emerged in the solutions developers and
+              designers used to solve common problems. One of these problems was
+              navigation. To encourage consistency, and to simplify HTML, a set
+              of
+              <a
+                href="https://developer.chrome.com/docs/lighthouse/accessibility/use-landmarks/"
+              >
+                landmark elements
+              </a>
+              was introduced.
+            </p>
+            <p>
+              In addition to improving code quality, these elements provided
+              native support for
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/landmark_role"
+                >ARIA landmark roles</a
+              >. Roles help visitors using screen readers navigate web pages
+              more easily. The intention was to make HTML 5 conform to more
+              rigorous standards.
+            </p>
+            <h4>ARIA Landmarks</h4>
+            <div class="cols">
+              <div>aside</div>
+              <div>footer</div>
+              <div>form</div>
+              <div>header</div>
+              <div>main</div>
+              <div>nav</div>
+              <div>section</div>
+            </div>
+          </section>
+          <section aria-labelledby="benefits-of-semantic-html">
+            <h3 id="benefits-of-semantic-html">
+              Benefits of writing semantic HTML
+            </h3>
+            <p>
+              Good markup benefits everyone. When developers and designers pay
+              attention to good semantics - using HTML elements correctly - they
+              can be confident their pages will be understood by visitors on
+              different devices, including screen readers.
+            </p>
+            <p>Benefits of semantic HTML:</p>
+            <ul>
+              <li>Accessible by more people on different devices</li>
+              <li>Code that is easier to understand</li>
+              <li>
+                Likely results in lighter file sizes which increases performance
+                and reduces emissions
+              </li>
+              <li>
+                Good for SEO (search engines give more weight to keywords inside
+                headings, etc.)
+              </li>
+              <li>Interpretable in future devices and environments</li>
+            </ul>
+          </section>
           <h2>Exercises</h2>
           <p>
             <em>Note</em>: Please install our
@@ -155,52 +162,53 @@
             </a>
             for Chrome before you begin.
           </p>
-        </section>
-        <section aria-labelledby="a-valid-html-page">
-          <h3 id="a-valid-html-page">A valid HTML page</h3>
-          <p>The best way to learn semantic HTML is to write it.</p>
-          <ol>
-            <li>
-              Create a single page (index.html) that has a <code>main</code>,
-              <code>header</code>, <code>article</code>, <code>aside</code>,
-              <code>h1</code>, <code>p</code>, and a
-              <code>footer</code>
-            </li>
-            <li>
-              Check that your HTML is valid (semantically correct) using a
-              screen reader
-            </li>
-            <li>
-              Check that your HTML is valid using the chrome accessibility
-              schema extension
-            </li>
-          </ol>
-          <p>
-            Bad semantics is common but it's not too hard to avoid. There are
-            <a class="local" href="#accessibility-tools">tools</a> you can use
-            to check your pages. This is an example of
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML"
-              >bad semantics</a
-            >. You may come across similar code, but a more prevalent problem is
-            code (semantic or not) buried in a cascade of <code>divs</code>. Any
-            Substack page will do by way of illustration.
-          </p>
-        </section>
-        <aside aria-labelledby="div">
-          <h3 id="div">The div</h3>
-          <p>
-            <code>div</code> is semantically empty. It's value is as a wrapper
-            for other elements in order to style them.
-          </p>
-          <p>
-            Let's say we want to align some text both vertically and
-            horizontally, and place it on a blue background.
-          </p>
-          <pre><code>&#x3C;div class=&#x22;style-me&#x22;&#x3E;
+
+          <section aria-labelledby="a-valid-html-page">
+            <h3 id="a-valid-html-page">A valid HTML page</h3>
+            <p>The best way to learn semantic HTML is to write it.</p>
+            <ol>
+              <li>
+                Create a single page (index.html) that has a <code>main</code>,
+                <code>header</code>, <code>article</code>, <code>aside</code>,
+                <code>h1</code>, <code>p</code>, and a
+                <code>footer</code>
+              </li>
+              <li>
+                Check that your HTML is valid (semantically correct) using a
+                screen reader
+              </li>
+              <li>
+                Check that your HTML is valid using the chrome accessibility
+                schema extension
+              </li>
+            </ol>
+            <p>
+              Bad semantics is common but it's not too hard to avoid. There are
+              <a class="local" href="#accessibility-tools">tools</a> you can use
+              to check your pages. This is an example of
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML"
+                >bad semantics</a
+              >. You may come across similar code, but a more prevalent problem
+              is code (semantic or not) buried in a cascade of
+              <code>divs</code>. Any Substack page will do by way of
+              illustration.
+            </p>
+          </section>
+          <aside aria-labelledby="div">
+            <h3 id="div">The div</h3>
+            <p>
+              <code>div</code> is semantically empty. It's value is as a wrapper
+              for other elements in order to style them.
+            </p>
+            <p>
+              Let's say we want to align some text both vertically and
+              horizontally, and place it on a blue background.
+            </p>
+            <pre><code>&#x3C;div class=&#x22;style-me&#x22;&#x3E;
             I like to be in the middle of things.
           &#x3C;/div&#x3E;</code></pre>
-          <pre><code>
+            <pre><code>
             .style-me {
               display: flex;
               align-items: center;
@@ -208,322 +216,343 @@
               background-color: blue;
             }
           </code></pre>
-          <p>
-            The <code>div</code> element is a useful tool for visual
-            presentation, but should not be overused. Deeply nested HTML is hard
-            read for to humans and takes computers longer to parse and process.
-          </p>
-        </aside>
-        <h2>Styling the page</h2>
-        <p>
-          We have created a simple page, and validated it. It makes sense. We
-          can improve its visual representation with confidence.
-        </p>
-        <section aria-labelledby="grids">
-          <h3 id="grids">Grids</h3>
-          <p>
-            We are going to use
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
-              >CSS Grids</a
-            >
-            to alter the layout of the page. If you're not familiar with CSS,
-            don't worry, we'll work through these examples together. We could
-            start with something simpler, but realistic examples are more
-            interesting.
-          </p>
-          <p>
-            If you need some help, take a look at these
-            <a href="/src/workshops/examples/grid.html" target="_blank"
-              >grid examples</a
-            >
-            before you begin.
-          </p>
-          <p>We're going to make some changes to the HTML:</p>
-          <ol>
-            <li>Add an <code>aside</code> with the text 'sidebar' inside</li>
-            <li>
-              Create a grid in CSS that puts the 'sidebar' on the left with a
-              minimum width of 200px
-            </li>
-          </ol>
-          <p>
-            <em>Hint:</em> Your CSS needs to refer to the <code>aside</code> and
-            <code>main</code> landmarks.
-          </p>
-          <p>
-            The CSS Grid is ideal for creating layouts that have two work
-            horizontally and vertically. They can also adjust to the available
-            space.
-          </p>
-          <p>
-            Experiment by replicating these
-            <a href="https://gridbyexample.com/examples/">grid layouts</a>.
-          </p>
-        </section>
-        <section aria-labelledby="flexbox">
-          <h3 id="flexbox">Flex</h3>
-          <p>
-            CSS Grid provides control over overall page layout. CSS Flex (or
-            Flexbox) provides control over parts of the page, either
-            horizontally (rows) or vertically (columns).
-          </p>
-          <p>
-            We don't look at flex closely in this workshop, but if you want to
-            learn more about flex, please see our
-            <a href="/src/workshops/examples/flex.html">flex examples</a>.
-          </p>
-        </section>
-        <section aria-labelledby="designing-for-the-browser">
-          <h3 id="designing-for-the-browser">Designing for the browser</h3>
-          <p>
-            The natural environment of web pages and apps is the browser and
-            design is best served by leveraging what is innate.
-          </p>
-          <p>
-            Understanding CSS grid and flex properties is fundamental to
-            designing flexible, responsive web layouts.
-          </p>
-        </section>
-        <section aria-labelledby="ai">
-          <h3 id="ai">AI</h3>
-          <p>
-            <abbr title="Large language models">LLMs</abbr> such as
-            <a href="https://claude.ai/new">Claude</a> and
-            <a href="https://chat.openai.com/">ChatGPT</a> can check code.
-            Alternatively, prompt them to generate the pages you need.
-          </p>
-          <p>
-            It's likely generative AI will play a significant role in web
-            development. Since it requires a lot of energy, it's important we
-            balance it against savings (including energy saved when human
-            developers and designers are not involved).
-          </p>
-          <p>
-            We will look at the role of AI in more depth during the workshop on
-            IA (Information Architecture) but, in the meantime, here is a
-            thought/controversy-provoking article on
-            <a href="https://www.uxtigers.com/post/accessibility-generative-ui"
-              >AI and accessibility</a
-            >
-            from Jakob Nielsen.
-          </p>
-
-          <aside aria-labelledby="prompt-example">
-            <h3 id="prompt-example">Prompt example</h3>
-            <p>Hello.</p>
             <p>
-              I would like you to create index.html and styles.css files. The
-              HTML page should contain a header, footer and a main which
-              contains an article and two asides (one for a table of contents -
-              TOC - for the article, the other for links to related articles).
-            </p>
-            <p>
-              I would like the TOC to move above the article on smaller screens,
-              and the related articles to move below. Please add basic layout
-              styling e.g. padding, margins. Use the default fonts. Use
-              variables for repeating css statements, e.g. --padding. Use rems
-              for units. Please use a grid layout with grid areas.
-            </p>
-            <p>Thank you.</p>
-            <p>
-              <em>
-                The
-                <a href="https://github.com/p-n-c/ai-prompt-demo"
-                  >result of this prompt</a
-                >
-                is a working page.
-              </em>
+              The <code>div</code> element is a useful tool for visual
+              presentation, but should not be overused. Deeply nested HTML is
+              hard read for to humans and takes computers longer to parse and
+              process.
             </p>
           </aside>
+        </section>
+        <section aria-labelledby="styling-the-page">
+          <h2 id="styling-the-page">Styling the page</h2>
           <p>
-            It is also possible to ask Claude to create a working page from an
-            <a href="/src/how-to/create-a-website-from-an-artefact.html"
-              >artefact</a
-            >. An artefact could be a wireframe, a detailed figma design, or, as
-            in this case, a screen shot of an existing page.
+            We have created a simple page, and validated it. It makes sense. We
+            can improve its visual representation with confidence.
           </p>
-        </section>
-        <h2>Summary</h2>
-        <p>
-          In this workshop we used semantic HTML to build a simple page and CSS
-          to style it. We learnt the importance of semantic HTML and why it is
-          critical for accessibility.
-        </p>
-        <p>Here is a semantic HTML checklist:</p>
-        <ul>
-          <li>Use the appropriate HTML element</li>
-          <li>
-            Check to see if there is a native HTML element before creating
-            custom 'components'
-          </li>
-          <li>
-            Check your page is valid by using a screen reader and browser tools
-            and extensions
-          </li>
-          <li>Use CSS for visual presentation</li>
-          <li>
-            Use appropriate CSS properties for layout and styling e.g.
-            <code>grid</code> for 2-dimensional layouts and
-            <code>flex</code> for 1-dimensional layouts.
-          </li>
-        </ul>
-
-        <h2>Related workshops</h2>
-        <ul>
-          <li>Information architecture</li>
-          <li>Accessible forms</li>
-        </ul>
-        <h2>How to…</h2>
-        <ul>
-          <li>
-            <a
-              class="local"
-              href="/src/how-to/create-a-website-from-a-template-in-vs-code.html"
-              >Create a website from a template</a
-            >
-          </li>
-          <li>
-            <a href="/src/how-to/create-a-website-from-an-artefact.html"
-              >Create a website from an artefact</a
-            >
-          </li>
-          <li>Use browser tools and extensions</li>
-        </ul>
-        <h2>Supporting materials</h2>
-        <p>A simple page with good structure:</p>
-        <ul>
-          <li>
-            <a
-              href="/src/workshops/examples/simple-page-structure.html"
-              target="_blank"
-              >Simple page structure</a
-            >
-          </li>
-        </ul>
-        <p>
-          Examples of good and bad semantics from
-          <abbr title="Mozilla Developer Network">MDN</abbr>'s
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML"
-            ><abbr title="Hypertext Markup Language">HTML</abbr>: A good basis
-            for accessibility</a
-          >
-        </p>
-        <ul>
-          <li>
-            <a
-              href="/src/workshops/examples/good-semantics.html"
-              target="_blank"
-              >Good semantics</a
-            >
-          </li>
-          <li>
-            <a href="/src/workshops/examples/bad-semantics.html" target="_blank"
-              >Bad semantics</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://mdn.github.io/learning-area/accessibility/html/table-layout.html"
-              >Bad page layout</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://mdn.github.io/learning-area/html/introduction-to-html/document_and_website_structure/"
-              >Good page layout</a
-            >
-          </li>
-        </ul>
-        <p>
-          An example of good page structure from the W3C's
-          <abbr title="Web Accessibility Initiative">WAI</abbr> tutorial on
-          writing, designing, and developing for accessibility.
-        </p>
-        <ul>
-          <li>
-            <a
-              href="/src/workshops/examples/page-structure.html"
-              target="_blank"
-              >Page Structure</a
-            >
-          </li>
-        </ul>
-        <section aria-labelledby="html-5">
-          <h3 id="html-5">HTML 5</h3>
-          <ul>
-            <li>
-              <a
-                href="https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html"
-                >ARIA Landmarks Example</a
-              >
-            </li>
-          </ul>
-        </section>
-        <section aria-labelledby="accessibility-tools">
-          <h3 id="accessibility-tools">Accessibility tools</h3>
-          <ul>
-            <li>
-              Chrome extension
-              <a
-                href="https://chromewebstore.google.com/detail/html-schema-generator-by/eppjelahjidcpgepiaopkjgkmeldhkaf"
-                >accessibility schema</a
-              >
-              from People and Code
-            </li>
-            <li>
-              <abbr title="Web Accessibility Evaluation">WAVE</abbr>
-              <a href="https://wave.webaim.org/extension/"
-                >browser extensions</a
-              >
-            </li>
-            <li>
-              A longer
-              <a href="https://www.the-public-good.com/accessibility"
-                >list of accessibility tools</a
-              >
-              <p>
-                <em
-                  >An introduction to HTML from
-                  <abbr title="Mozilla Developer Network">MDN</abbr>. Part of
-                  its series on web development.</em
-                >
-              </p>
-            </li>
-          </ul>
-        </section>
-        <section aria-labelledby="css">
-          <h3 id="css">CSS</h3>
-          <p>We recommend MDN for learning CSS.</p>
-          <ul>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started"
-                >Getting started with CSS</a
-              >
-            </li>
-            <li>
+          <section aria-labelledby="grids">
+            <h3 id="grids">Grids</h3>
+            <p>
+              We are going to use
               <a
                 href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
                 >CSS Grids</a
               >
+              to alter the layout of the page. If you're not familiar with CSS,
+              don't worry, we'll work through these examples together. We could
+              start with something simpler, but realistic examples are more
+              interesting.
+            </p>
+            <p>
+              If you need some help, take a look at these
+              <a href="/src/workshops/examples/grid.html" target="_blank"
+                >grid examples</a
+              >
+              before you begin.
+            </p>
+            <p>We're going to make some changes to the HTML:</p>
+            <ol>
+              <li>Add an <code>aside</code> with the text 'sidebar' inside</li>
+              <li>
+                Create a grid in CSS that puts the 'sidebar' on the left with a
+                minimum width of 200px
+              </li>
+            </ol>
+            <p>
+              <em>Hint:</em> Your CSS needs to refer to the
+              <code>aside</code> and <code>main</code> landmarks.
+            </p>
+            <p>
+              The CSS Grid is ideal for creating layouts that have two work
+              horizontally and vertically. They can also adjust to the available
+              space.
+            </p>
+            <p>
+              Experiment by replicating these
+              <a href="https://gridbyexample.com/examples/">grid layouts</a>.
+            </p>
+          </section>
+          <section aria-labelledby="flexbox">
+            <h3 id="flexbox">Flex</h3>
+            <p>
+              CSS Grid provides control over overall page layout. CSS Flex (or
+              Flexbox) provides control over parts of the page, either
+              horizontally (rows) or vertically (columns).
+            </p>
+            <p>
+              We don't look at flex closely in this workshop, but if you want to
+              learn more about flex, please see our
+              <a href="/src/workshops/examples/flex.html">flex examples</a>.
+            </p>
+          </section>
+          <section aria-labelledby="designing-for-the-browser">
+            <h3 id="designing-for-the-browser">Designing for the browser</h3>
+            <p>
+              The natural environment of web pages and apps is the browser and
+              design is best served by leveraging what is innate.
+            </p>
+            <p>
+              Understanding CSS grid and flex properties is fundamental to
+              designing flexible, responsive web layouts.
+            </p>
+          </section>
+          <section aria-labelledby="ai">
+            <h3 id="ai">AI</h3>
+            <p>
+              <abbr title="Large language models">LLMs</abbr> such as
+              <a href="https://claude.ai/new">Claude</a> and
+              <a href="https://chat.openai.com/">ChatGPT</a> can check code.
+              Alternatively, prompt them to generate the pages you need.
+            </p>
+            <p>
+              It's likely generative AI will play a significant role in web
+              development. Since it requires a lot of energy, it's important we
+              balance it against savings (including energy saved when human
+              developers and designers are not involved).
+            </p>
+            <p>
+              We will look at the role of AI in more depth during the workshop
+              on IA (Information Architecture) but, in the meantime, here is a
+              thought/controversy-provoking article on
+              <a
+                href="https://www.uxtigers.com/post/accessibility-generative-ui"
+                >AI and accessibility</a
+              >
+              from Jakob Nielsen.
+            </p>
+            <aside aria-labelledby="prompt-example">
+              <h3 id="prompt-example">Prompt example</h3>
+              <p>Hello.</p>
+              <p>
+                I would like you to create index.html and styles.css files. The
+                HTML page should contain a header, footer and a main which
+                contains an article and two asides (one for a table of contents
+                - TOC - for the article, the other for links to related
+                articles).
+              </p>
+              <p>
+                I would like the TOC to move above the article on smaller
+                screens, and the related articles to move below. Please add
+                basic layout styling e.g. padding, margins. Use the default
+                fonts. Use variables for repeating css statements, e.g.
+                --padding. Use rems for units. Please use a grid layout with
+                grid areas.
+              </p>
+              <p>Thank you.</p>
+              <p>
+                <em>
+                  The
+                  <a href="https://github.com/p-n-c/ai-prompt-demo"
+                    >result of this prompt</a
+                  >
+                  is a working page.
+                </em>
+              </p>
+            </aside>
+            <p>
+              It is also possible to ask Claude to create a working page from an
+              <a href="/src/how-to/create-a-website-from-an-artefact.html"
+                >artefact</a
+              >. An artefact could be a wireframe, a detailed figma design, or,
+              as in this case, a screen shot of an existing page.
+            </p>
+          </section>
+        </section>
+        <section aria-labelledby="summary">
+          <h2 id="summary">Summary</h2>
+          <p>
+            In this workshop we used semantic HTML to build a simple page and
+            CSS to style it. We learnt the importance of semantic HTML and why
+            it is critical for accessibility.
+          </p>
+          <p>Here is a semantic HTML checklist:</p>
+          <ul>
+            <li>Use the appropriate HTML element</li>
+            <li>
+              Check to see if there is a native HTML element before creating
+              custom 'components'
             </li>
-            <li><a href="https://csszengarden.com/">CSS Zen Garden</a></li>
+            <li>
+              Check your page is valid by using a screen reader and browser
+              tools and extensions
+            </li>
+            <li>Use CSS for visual presentation</li>
+            <li>
+              Use appropriate CSS properties for layout and styling e.g.
+              <code>grid</code> for 2-dimensional layouts and
+              <code>flex</code> for 1-dimensional layouts.
+            </li>
           </ul>
         </section>
-        <h2>Further reading</h2>
-        <ul>
-          <li>
-            <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML"
-              >Structuring the web with HTML</a
+        <section aria-labelledby="related-workshops">
+          <h2 id="related-workshops">Related workshops</h2>
+          <nav aria-label="Related workshops">
+            <ul>
+              <li>Information architecture</li>
+              <li>Accessible forms</li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="how-to">
+          <h2 id="how-to">How to…</h2>
+          <nav aria-label="How to resources">
+            <ul>
+              <li>
+                <a
+                  class="local"
+                  href="/src/how-to/create-a-website-from-a-template-in-vs-code.html"
+                  >Create a website from a template</a
+                >
+              </li>
+              <li>
+                <a href="/src/how-to/create-a-website-from-an-artefact.html"
+                  >Create a website from an artefact</a
+                >
+              </li>
+              <li>Use browser tools and extensions</li>
+            </ul>
+          </nav>
+        </section>        
+        <section aria-labelledby="supporting-materials">
+          <h2 id="supporting-materials">Supporting materials</h2>
+          <p>A simple page with good structure:</p>
+          <ul>
+            <li>
+              <a
+                href="/src/workshops/examples/simple-page-structure.html"
+                target="_blank"
+                >Simple page structure</a
+              >
+            </li>
+          </ul>
+          <p>
+            Examples of good and bad semantics from
+            <abbr title="Mozilla Developer Network">MDN</abbr>'s
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML"
+              ><abbr title="Hypertext Markup Language">HTML</abbr>: A good basis
+              for accessibility</a
             >
-          </li>
-        </ul>
+          </p>
+          <ul>
+            <li>
+              <a
+                href="/src/workshops/examples/good-semantics.html"
+                target="_blank"
+                >Good semantics</a
+              >
+            </li>
+            <li>
+              <a
+                href="/src/workshops/examples/bad-semantics.html"
+                target="_blank"
+                >Bad semantics</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://mdn.github.io/learning-area/accessibility/html/table-layout.html"
+                >Bad page layout</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://mdn.github.io/learning-area/html/introduction-to-html/document_and_website_structure/"
+                >Good page layout</a
+              >
+            </li>
+          </ul>
+          <p>
+            An example of good page structure from the W3C's
+            <abbr title="Web Accessibility Initiative">WAI</abbr> tutorial on
+            writing, designing, and developing for accessibility.
+          </p>
+          <ul>
+            <li>
+              <a
+                href="/src/workshops/examples/page-structure.html"
+                target="_blank"
+                >Page Structure</a
+              >
+            </li>
+          </ul>
+          <section aria-labelledby="html-5">
+            <h3 id="html-5">HTML 5</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html"
+                  >ARIA Landmarks Example</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="accessibility-tools">
+            <h3 id="accessibility-tools">Accessibility tools</h3>
+            <ul>
+              <li>
+                Chrome extension
+                <a
+                  href="https://chromewebstore.google.com/detail/html-schema-generator-by/eppjelahjidcpgepiaopkjgkmeldhkaf"
+                  >accessibility schema</a
+                >
+                from People and Code
+              </li>
+              <li>
+                <abbr title="Web Accessibility Evaluation">WAVE</abbr>
+                <a href="https://wave.webaim.org/extension/"
+                  >browser extensions</a
+                >
+              </li>
+              <li>
+                A longer
+                <a href="https://www.the-public-good.com/accessibility"
+                  >list of accessibility tools</a
+                >
+                <p>
+                  <em
+                    >An introduction to HTML from
+                    <abbr title="Mozilla Developer Network">MDN</abbr>. Part of
+                    its series on web development.</em
+                  >
+                </p>
+              </li>
+            </ul>
+          </section>
+          <section aria-labelledby="css">
+            <h3 id="css">CSS</h3>
+            <p>We recommend MDN for learning CSS.</p>
+            <ul>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started"
+                  >Getting started with CSS</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
+                  >CSS Grids</a
+                >
+              </li>
+              <li><a href="https://csszengarden.com/">CSS Zen Garden</a></li>
+            </ul>
+          </section>
+        </section>
+        <section aria-labelledby="further-reading">
+          <h2 id="further-reading">Further reading</h2>
+          <ul>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML"
+                >Structuring the web with HTML</a
+              >
+            </li>
+          </ul>
+        </section>
       </article>
       <hr />
       <aside class="centre" aria-labelledby="attribution">
-        <h3 id="attribution">Attribution</h3>
+        <h2 id="attribution">Attribution</h3>
         <p>
           This document was reviewed by <a href="https://claude.ai">Claude</a>.
         </p>
