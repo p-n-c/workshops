@@ -13,6 +13,12 @@
   <body class="body">
     <header>
       <h1>Create a website from a template</h1>
+      <small>
+        <p><em>Style: guided</em></p>
+        <p>
+          <em><time datetime="PT30M">Duration: 30 minutes</time></em>
+        </p>
+      </small>
       <p>
         We will learn how to set up a developer environment and create a website
         using:
@@ -23,10 +29,6 @@
         <li>GitHub</li>
         <li>P&C web project generator</li>
       </ul>
-      <small>
-        <p><em>Style: guided</em></p>
-        <p><em>Duration: 30 minutes</em></p>
-      </small>
       <p>
         We will go through the steps one by one and be on hand to answer any
         questions. You are required, however, to be familiar with web
@@ -34,8 +36,8 @@
       </p>
     </header>
     <main class="main">
-      <article aria-labelledby="how-to-setup-vs-code">
-        <h2 id="how-to-setup-vs-code">How to set up VS Code</h2>
+      <article aria-labelledby="how-to-run-a-project-in-vs-code">
+        <h2 id="how-to-run-a-project-in-vs-code">Run a project in VS Code</h2>
         <p>
           To work with <abbr title="Hypertext Markup Language">HTML</abbr> and
           <abbr title="Cascading Style Sheets">CSS</abbr> you need a development
@@ -54,7 +56,7 @@
           <abbr title="Cascading Style Sheets">CSS</abbr> to style it.
         </p>
         <p>Let's begin:</p>
-        <ul>
+        <ol aria-label="How to set up VS Code and create a website steps">
           <li>
             Install
             <a href="https://code.visualstudio.com/download">VS Code</a>
@@ -80,7 +82,7 @@
             <code>Server running at http://localhost:1234</code> while hold the
             command button
           </li>
-        </ul>
+        </ol>
         <p>
           The website is now running in the browser. If you change either the
           HTML or CSS, and save, the website will automatically update.
@@ -185,7 +187,7 @@
             >.
           </p>
           <dl>
-            <dt>CLI</dt>
+            <dt><abbr title="Command line interface">CLI</abbr></dt>
             <dd>
               The Command line interface is the generic term for the application
               where you write operating system instructions.
@@ -196,14 +198,14 @@
             application.
           </p>
           <dl>
-            <dt>GUI</dt>
+            <dt><abbr title="Graphical User Interface">GUI</abbr></dt>
             <dd>
               Applications like VS Code that have interactive graphics are
               graphical user interfaces.
             </dd>
           </dl>
           <dl>
-            <dt>BASH</dt>
+            <dt><abbr title="Bourne-Again SHell">BASH</abbr></dt>
             <dd>
               (Bourne-Again SHell) is a scripting language for writing shell
               commands (<code>li</code> is one such command). For many years, it
@@ -234,13 +236,13 @@
             >
             in VS Code on a mac:
           </p>
-          <ul>
+          <ol aria-label="How to open VS Code using a shortcut steps">
             <li>Open VS Code</li>
             <li>Type <code>Command + Shift + P</code></li>
             <li>Type <code>shell command</code></li>
             <li>Select <code>Install 'code' command in PATH </code></li>
             <li>Restart Terminal</li>
-          </ul>
+          </ol>
           <p>
             Once you have cd'd into a project, you can open it in VS Code by
             typing
