@@ -317,7 +317,7 @@ dt {
   margin: 0 10ch;
 
   & > div {
-    flex: 1 150px;
+    width: 120px;
     margin: calc(var(--d) * 2);
     display: flex;
   }
