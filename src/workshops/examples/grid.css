@@ -1,0 +1,28 @@
+/* Grid examples */
+
+#grid {
+  .grid {
+    display: grid;
+    gap: calc(var(--d) * 2);
+
+    & > div {
+      border: 1px solid var(--border-colour);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--d) * 4);
+    }
+  }
+
+  .simple-grid .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .unequal-grid .grid {
+    grid-template-columns: 10fr 1fr 1fr;
+  }
+
+  .responsive-grid .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
