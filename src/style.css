@@ -80,6 +80,13 @@ footer {
   flex-direction: column;
   line-height: 1.8;
   background-color: var(--bg-colour);
+
+  nav {
+    width: calc((var(--w) * 100) - (var(--d) * 4));
+    max-width: 75ch;
+    padding: calc(var(--d) * 2) 0;
+    border-top: 2px solid var(--border-colour);
+  }
 }
 
 /* controls */
@@ -134,13 +141,6 @@ body {
 
 .main {
   margin-bottom: calc(var(--d) * 24);
-}
-
-nav {
-  width: calc((var(--w) * 100) - (var(--d) * 4));
-  max-width: 75ch;
-  padding: calc(var(--d) * 2) 0;
-  border-top: 2px solid var(--border-colour);
 }
 
 /* images */
