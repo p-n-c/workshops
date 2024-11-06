@@ -1,6 +1,6 @@
 {
   "Section": {
-    "prefix": "section-region",
+    "prefix": "pac-section",
     "body": [
       "<section aria-labelledby=\"${1:id}\">",
       " <h${2:header number} id=\"${1:id}\">${3:header}</h${2:header number}>",
