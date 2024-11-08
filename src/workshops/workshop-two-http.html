@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Workshop two: an introduction to http, sop and Cross_browser_testing"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Workshop two: HTTP</title>
+  </head>
+  <body class="body">
+    <header>
+      <h1>Workshop two: HTTP</h1>
+      <p>
+        <strong>Punchy takeaway…</strong>
+      </p>
+      <small>
+        <p>
+          <em>Style: guided</em>
+        </p>
+        <p>
+          <em><time datetime="PT1H30M">Duration: 1 hour 30 minutes</time></em>
+        </p>
+      </small>
+    </header>
+    <main class="main">
+      <article>
+        <section aria-labelledby="overview">
+          <h2 id="overview">Overview</h2>
+          <ul aria-label="workshop-outcomes">
+            <li>Set request and response headers</li>
+            <li>
+              Understand <abbr title="Cross-origin resource sharing">CORS</abbr>
+            </li>
+          </ul>
+          <section aria-labelledby="exercises">
+            <h3 id="exercises">Exercises</h3>
+            <p>
+              A set of exercises to test understanding of http request and
+              response headers.
+            </p>
+            <ul>
+              <li>
+                <h4>CORS</h4>
+                <p>
+                  Change the value of the
+                  <code>Access-Control-Allow-Origin</code> header on the
+                  <strong>http server</strong> so that the client request is
+                  refused.
+                </p>
+                <p>
+                  In the console you will see a message something like this:
+                </p>
+                <blockquote>
+                  <p>
+                    Access to fetch at
+                    <em><strong>API endpoint</strong></em> from origin
+                    <em><strong>web page</strong></em> has been blocked by CORS
+                    policy: The 'Access-Control-Allow-Origin' header has a value
+                    <em><strong>e.g. example.com</strong></em> that is not equal
+                    to the supplied origin. Have the server send the header with
+                    a valid value, or, if an opaque response serves your needs,
+                    set the request's mode to 'no-cors' to fetch the resource
+                    with CORS disabled.
+                  </p>
+                </blockquote>
+                <p>
+                  The initial value, <code>*</code>, allows requests from any
+                  origin to access the resource (endpoint).
+                </p>
+                <p>
+                  Cross-Origin Resource Sharing (CORS) is a security mechanism
+                  implemented by browsers.
+                </p>
+                <p>
+                  The value of <code>Access-Control-Allow-Origin</code> only
+                  effects requests from the browser. It is not a way to
+                  safeguard access to the
+                  <abbr title="Application programming interface">API</abbr>.
+                  The server returns a response but the browser does not pass it
+                  on and it is not accessible to the web page.
+                </p>
+                <p>
+                  The same request sent from the command line
+                  <code>curl http://localhost:3000/?qs=red</code> is accessible,
+                  and will be for any request no matter which origins are
+                  allowed.
+                </p>
+                <p>
+                  By default, the <code>mode</code> header on the
+                  <strong>client</strong> is <code>cors</code>. This value
+                  appears as
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode"
+                    >Sec-Fetch-Mode</a
+                  >
+                  on the network tab in Chrome DevTools.
+                </p>
+                <p>
+                  Changing this value to
+                  <code><a class="local" href="#no-cors">no-cors</a></code> has
+                  no effect on the server response header
+                  <code>Access-Control-Allow-Origin</code>. It instructs the
+                  browser not to send the origin of the request. The response
+                  cannot be accessed.
+                </p>
+                <p>
+                  In its place a <code>Response status: 0</code> notification is
+                  shown to the page.
+                </p>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section aria-labelledby="summary">
+          <h2 id="summary">Summary</h2>
+        </section>
+        <section aria-labelledby="related-workshops">
+          <h2 id="related-workshops">Related workshops</h2>
+          <nav aria-label="Related workshops">
+            <ul>
+              <li>Related workshop</li>
+              <li>Related workshop</li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="how-to">
+          <h2 id="how-to">How to…</h2>
+          <nav aria-label="How to resources">
+            <ul>
+              <li>
+                <a href="/src/how-to/set-up-an-http-server-and-client.html"
+                  >How to set up an HTTP server and client</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="supporting-materials">
+          <h2 id="supporting-materials">Supporting materials</h2>
+          <ul>
+            <li>Supporting material…</li>
+          </ul>
+        </section>
+        <section aria-labelledby="further-reading">
+          <h2 id="further-reading">Further reading</h2>
+          <ul>
+            <li>Further reading…</li>
+          </ul>
+        </section>
+        <section aria-labelledby="appendix">
+          <h2 id="appendix">Appendix</h2>
+          <h3 id="no-cors"><code>no-cors</code></h3>
+          <p>
+            There are valid reasons for setting mode to <code>no-cors</code> in
+            a request header. This is a verbatim answer from Claude to why I
+            might want to do this:
+          </p>
+
+          <blockquote>
+            <p>
+              The 'no-cors' mode in a client request header is used in a few
+              specific scenarios:
+            </p>
+            <ol>
+              <li>
+                <strong
+                  >Cross-Origin Resource Sharing (CORS) Restrictions</strong
+                >: If you're making a request to a resource that is hosted on a
+                different origin (different domain, subdomain, port, or
+                protocol) than your web application, the browser may block the
+                request due to CORS restrictions. Setting the mode to 'no-cors'
+                allows you to bypass these restrictions and make the request,
+                but it also means you won't be able to access the response data
+                in your JavaScript code due to the same-origin policy.
+              </li>
+              <li>
+                <strong
+                  >Accessing Resources from Content Delivery Networks
+                  (CDNs)</strong
+                >: When making requests to resources (e.g., fonts, images,
+                scripts) hosted on a CDN, you may need to use 'no-cors' mode to
+                bypass CORS checks and load the resources correctly in your web
+                application.
+              </li>
+              <li>
+                <strong>Interoperability with Legacy Systems</strong>:
+                Sometimes, you may need to interact with older or legacy systems
+                that don't properly implement CORS headers. Setting 'no-cors'
+                mode can help you work around these issues and make the
+                necessary requests.
+              </li>
+            </ol>
+            <cite>Claude</cite>
+          </blockquote>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <nav aria-label="Primary">
+        <a class="local" href="/src/sitemap.html">Human-readable sitemap</a>
+      </nav>
+    </footer>
+  </body>
+</html>
