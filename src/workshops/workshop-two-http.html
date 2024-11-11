@@ -38,27 +38,58 @@
           <section aria-labelledby="exercises">
             <h3 id="exercises">Exercises</h3>
             <p>
-              A set of exercises to test understanding of http request and
+              A set of exercises to test your understanding of http request and
               response headers.
             </p>
-            <ul>
+            <ol>
+              <li>
+                <h4>Simple http request and response</h4>
+                <p>
+                  The server header,
+                  <code>Access-Control-Allow-Origin</code>, determines which web
+                  pages can access a request response. The wildcard,
+                  <code>*</code>, allows all web pages to access the response.
+                  This is the default on our demo http server.
+                </p>
+                <pre><code>Access-Control-Allow-Origin: *</code></pre>
+                <p>Enter the example request.</p>
+              </li>
+              <li>
+                <h4>File not found, 404</h4>
+                <p>
+                  Enter a request with a colour that does not return its hex
+                  value. As the owner of the API, we could return a response
+                  indicating the request was successful - perhaps because the
+                  form of the request was correct - with the empty string as the
+                  return value.
+                </p>
+                <p>
+                  The alternative is to return a
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+                    >404 error</a
+                  >
+                  indicating that the resource is missing and the request has
+                  therefore failed.
+                </p>
+                <pre><code>Response status: 404</code></pre>
+              </li>
               <li>
                 <h4>CORS</h4>
                 <p>
-                  Change the value of the
+                  Now change the value of the
                   <code>Access-Control-Allow-Origin</code> header on the
-                  <strong>http server</strong> so that the client request is
-                  refused.
+                  <strong>http server</strong> so that the web page cannot
+                  access the response.
                 </p>
-                <p>
-                  In the console you will see a message something like this:
-                </p>
+                <p>In the browser console you will see a message like this:</p>
                 <blockquote>
                   <p>
                     Access to fetch at
-                    <em><strong>API endpoint</strong></em> from origin
-                    <em><strong>web page</strong></em> has been blocked by CORS
-                    policy: The 'Access-Control-Allow-Origin' header has a value
+                    <em><strong>{ API endpoint }</strong></em> from origin
+                    <em><strong>{ web page }</strong></em> has been blocked by
+                    CORS policy: The
+                    <code>Access-Control-Allow-Origin</code> header has a value
                     <em><strong>e.g. example.com</strong></em> that is not equal
                     to the supplied origin. Have the server send the header with
                     a valid value, or, if an opaque response serves your needs,
@@ -67,31 +98,44 @@
                   </p>
                 </blockquote>
                 <p>
-                  The initial value, <code>*</code>, allows requests from any
-                  origin to access the resource (endpoint).
+                  If you look at the console log on the server, you will see
+                  that the request has not been blocked. It is the browser which
+                  is responsible for denying the web page access the response.
                 </p>
                 <p>
                   Cross-Origin Resource Sharing (CORS) is a security mechanism
-                  implemented by browsers.
+                  implemented by browsers. The value of
+                  <code>Access-Control-Allow-Origin</code> affects whether or
+                  not the browser passes the response onto the web page client.
+                  It is not a way to safeguard access to the
+                  <abbr title="Application programming interface">API</abbr>
+                  - the server returns a response no matter the
+                  <code>Access-Control-Allow-Origin</code> value.
                 </p>
+                <aside>
+                  CORS is a <strong>browser</strong> security feature, not a
+                  server security feature.
+                </aside>
+              </li>
+              <li>
+                <h4>Clients other than browsers</h4>
                 <p>
-                  The value of <code>Access-Control-Allow-Origin</code> only
-                  effects requests from the browser. It is not a way to
-                  safeguard access to the
-                  <abbr title="Application programming interface">API</abbr>.
-                  The server returns a response but the browser does not pass it
-                  on and it is not accessible to the web page.
+                  Clients other than browsers can access request a resource
+                  regardless of the value of
+                  <code>Access-Control-Allow-Origin</code>. This can be verified
+                  by sending a request unavailable to JavaScript on a web page
+                  from the command line using
+                  <a href="https://curl.se/">cURL</a> on the command line (in
+                  the terminal).
                 </p>
+                <pre><code>curl http://localhost:3000/?qs=red</code></pre>
+              </li>
+              <li>
+                <h4>Setting the value of mode in the request header</h4>
                 <p>
-                  The same request sent from the command line
-                  <code>curl http://localhost:3000/?qs=red</code> is accessible,
-                  and will be for any request no matter which origins are
-                  allowed.
-                </p>
-                <p>
-                  By default, the <code>mode</code> header on the
-                  <strong>client</strong> is <code>cors</code>. This value
-                  appears as
+                  By default, the value of <code>mode</code> in the
+                  <strong>client</strong> header is <code>cors</code>. This
+                  value appears as
                   <a
                     href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode"
                     >Sec-Fetch-Mode</a
@@ -102,16 +146,16 @@
                   Changing this value to
                   <code><a class="local" href="#no-cors">no-cors</a></code> has
                   no effect on the server response header
-                  <code>Access-Control-Allow-Origin</code>. It instructs the
-                  browser not to send the origin of the request. The response
-                  cannot be accessed.
+                  <code>Access-Control-Allow-Origin</code>. Instead, it
+                  instructs the browser not to send the origin of the request.
+                  As a result, the response cannot be accessed. See
+                  <a class="local" href="#no-cors"> no-cors in the appendix </a>
+                  for reasons why you might want to do this.
                 </p>
-                <p>
-                  In its place a <code>Response status: 0</code> notification is
-                  shown to the page.
-                </p>
+                <p>The server response is also different:</p>
+                <pre><code>Response status: 0</code></pre>
               </li>
-            </ul>
+            </ol>
           </section>
         </section>
         <section aria-labelledby="summary">
@@ -155,8 +199,9 @@
           <h3 id="no-cors"><code>no-cors</code></h3>
           <p>
             There are valid reasons for setting mode to <code>no-cors</code> in
-            a request header. This is a verbatim answer from Claude to why I
-            might want to do this:
+            a request header. This is a verbatim answer from Claude made in
+            response to my question asking why I might want to set mode to
+            no-cors:
           </p>
 
           <blockquote>
