@@ -8,11 +8,11 @@
       content="Workshop two: an introduction to http, sop and Cross_browser_testing"
     />
     <link rel="stylesheet" href="/src/style.css" />
-    <title>Workshop two: HTTP</title>
+    <title>Workshop two: HTTP Messages</title>
   </head>
   <body class="body">
     <header>
-      <h1>Workshop two: HTTP</h1>
+      <h1>Workshop two: HTTP Messages</h1>
       <p>
         <strong>Understand the benefits of CORS</strong>
       </p>
@@ -21,7 +21,7 @@
           <em>Style: guided</em>
         </p>
         <p>
-          <em><time datetime="PT45M">Duration: 45 minutes</time></em>
+          <em><time datetime="PT1H">Duration: 1 hour</time></em>
         </p>
       </small>
     </header>
@@ -85,7 +85,8 @@
                 different origin.
               </p>
               <p>
-                Send a request to our local http server using the example:
+                Start up the http client and send a request to our local http
+                server using the example:
                 <code>http://localhost:3000/?colour=red</code>
               </p>
               <p>The request will fail:</p>
@@ -94,8 +95,10 @@
             <li>
               <h3>Successful request</h3>
               <p>
-                Uncomment the <code>Access-Control-Allow-Origin</code> header on
-                the http server.
+                <em>
+                  Uncomment the <code>Access-Control-Allow-Origin</code> header
+                  on the http server.
+                </em>
               </p>
               <p>
                 The wildcard value (<code>*</code>) instructs the browser to
@@ -108,13 +111,18 @@
                 This time the response is displayed and the response returns
                 with a status of 200 (success).
               </p>
-              <pre><code>"#ff0000"</code></pre>
+              <pre><code>{
+                "name": "red",
+                "hex": "#ff0000"
+              }</code></pre>
             </li>
             <li>
               <h3>CORS: HTTP header-based protocol</h3>
               <p>
-                Comment the <code>Access-Control-Allow-Origin</code> header on
-                the http server again.
+                <em>
+                  Comment the <code>Access-Control-Allow-Origin</code> header on
+                  the http server again.
+                </em>
               </p>
               <p>Send the example request. Once again, the request fails.</p>
               <p>
@@ -130,10 +138,6 @@
                   <em>'Access-Control-Allow-Origin'</em> header is present on
                   the requested resource.
                 </p>
-                <p>
-                  If an opaque response serves your needs, set the request's
-                  mode to 'no-cors' to fetch the resource with CORS disabled.
-                </p>
               </blockquote>
               <p>
                 Check the server console. You will see that although the browser
@@ -142,9 +146,12 @@
               </p>
               <h4>Explicit access: success</h4>
               <p>
-                Change the value of <code>Access-Control-Allow-Origin</code> so
-                that the origin matches that of the requesting origin (the web
-                page in the browser):
+                <em>
+                  Change the value of
+                  <code>Access-Control-Allow-Origin</code> so that the origin
+                  matches that of the requesting origin (the web page in the
+                  browser):
+                </em>
               </p>
               <pre><code>Access-Control-Allow-Origin: http://127.0.0.1:1234</code></pre>
               <p>
@@ -154,20 +161,24 @@
               <p>The request response is once more accessible.</p>
               <h4>Explicit access: failure</h4>
               <p>
-                Change the value of <code>Access-Control-Allow-Origin</code> so
-                that either the scheme, domain or port does not match e.g. use
-                <code>http<strong>s</strong></code
-                >.
+                <em>
+                  Change the value of
+                  <code>Access-Control-Allow-Origin</code> so that either the
+                  scheme, domain or port does not match e.g. use
+                  <code>http<strong>s</strong></code
+                  >.
+                </em>
               </p>
               <p>
                 Note that the request is always returned by the http server and
-                is visible in the console.
+                is visible in the http server console.
               </p>
               <pre><code>Access-Control-Allow-Origin: https://127.0.0.1:1234</code></pre>
               <p>
                 NB the value of the port (1234) can vary. Check the value in the
                 client browser address bar. Do not use
-                <code>localhost</code> for the domain as this is not supported.
+                <code>localhost</code> for the domain (instead of 127.0.0.1) as
+                this is not supported.
               </p>
               <h4>CORS summary</h4>
               <p>
@@ -190,8 +201,10 @@
             <li>
               <h3>File not found, 404</h3>
               <p>
-                Uncomment the <code>Access-Control-Allow-Origin</code> header on
-                the http server.
+                <em>
+                  Uncomment the <code>Access-Control-Allow-Origin</code> header
+                  on the http server.
+                </em>
               </p>
               <p>
                 Send a request to our local http server asking for the hex value
@@ -217,15 +230,15 @@
             <li>
               <h3>Clients other than browsers</h3>
               <p>
-                Clients other than browsers can access request a resource
+                Clients other than browsers can access a request resource
                 regardless of the value of
                 <code>Access-Control-Allow-Origin</code>. This can be verified
-                by sending a request unavailable to JavaScript on a web page
-                from the command line using
-                <a href="https://curl.se/">cURL</a> on the command line (in the
-                terminal).
+                by replicating a request for which the response is unavailable
+                to a web page from the command line. One way to do this is by
+                using <a href="https://curl.se/">cURL</a>:
               </p>
               <pre><code>curl http://localhost:3000/?colour=red</code></pre>
+              <p>The response is logged out to the terminal.</p>
             </li>
             <li>
               <h3>Setting the value of mode in the request header</h3>
@@ -248,7 +261,7 @@
               <p>
                 <code>no-cors</code>
                 instructs the browser not to send the origin of the request. As
-                a result, the response cannot be accessed. See
+                a result, the response cannot be accessed. See the section on
                 <a class="local" href="#no-cors"> no-cors in the appendix </a>
                 for reasons why you might want to do this.
               </p>
@@ -296,12 +309,12 @@
               </p>
               <pre><code>res.setHeader('Access-Control-Allow-Headers', 'Content-Type')</code></pre>
               <p>
-                The preflight <code>OPTIONS</code> now request passes and the
+                The preflight <code>OPTIONS</code> request now passes and the
                 <code>POST</code> request is also sent.
               </p>
               <h4>Status code</h4>
               <p>
-                If a new colour is added, the status is
+                When a new colour is added, the status is
                 <a
                   href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201"
                   >201 Created</a
@@ -315,11 +328,57 @@
                 >.
               </p>
             </li>
-            <li><h3>Form submission</h3></li>
+            <li>
+              <h3>Form submission</h3>
+              <p>
+                Form submissions are unaffected by
+                <abbr title="Cross-Origin Resource Sharing">CORS</abbr>. No
+                preflight request will be sent.
+              </p>
+              <p>
+                To prevent Cross-Site Request Forgery (<a
+                  href="https://developer.mozilla.org/en-US/docs/Glossary/CSRF"
+                  >CSRF</a
+                >), however, the server must be defended against malicious
+                actions. This topic is not covered here.
+              </p>
+              <p>
+                <abbr title="Cross-Origin Resource Sharing">CORS</abbr> only
+                triggers a preflight requests for requests not regarded as
+                "simple". This term is no longer used but is useful nonetheless.
+              </p>
+              <p>
+                See the section on
+                <a class="local" href="#simple-requests">Simple requests</a> in
+                the appendix for more detail.
+              </p>
+            </li>
           </ol>
         </section>
         <section aria-labelledby="summary">
           <h2 id="summary">Summary</h2>
+          <p>
+            In this workshop we set up a simple http server, an instance of
+            Node.js's
+            <a href="https://nodejs.org/api/http.html#class-httpserver"
+              >http.Server</a
+            >.
+          </p>
+          <p>
+            From a web page, we made a number of <code>GET</code> and
+            <code>POST</code> requests against this server using the
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+              >fetch API</a
+            >. We also posted data from an HTML form without JavaScript.
+          </p>
+          <p>
+            We experimented with headers on both the server and client in order
+            to demonstrate that
+            <abbr title="Cross-Origin Resource Sharing">CORS</abbr> is enabled
+            by configuring the server but is used by the browser to control
+            whether or not a web page (and the JavaScript running on it) has
+            access to the response.
+          </p>
         </section>
         <section aria-labelledby="related-workshops">
           <h2 id="related-workshops">Related workshops</h2>
@@ -340,18 +399,14 @@
           <nav aria-label="How to resources">
             <ul>
               <li>
-                <a href="/src/how-to/set-up-an-http-server-and-client.html"
+                <a
+                  class="local"
+                  href="/src/how-to/set-up-an-http-server-and-client.html"
                   >How to set up an HTTP server and client</a
                 >
               </li>
             </ul>
           </nav>
-        </section>
-        <section aria-labelledby="supporting-materials">
-          <h2 id="supporting-materials">Supporting materials</h2>
-          <ul>
-            <li>Supporting material…</li>
-          </ul>
         </section>
         <section aria-labelledby="further-reading">
           <h2 id="further-reading">Further reading</h2>
@@ -361,7 +416,7 @@
         </section>
         <section aria-labelledby="appendix">
           <h2 id="appendix">Appendix</h2>
-          <h3 id="no-cors"><code>no-cors</code></h3>
+          <h3 id="no-cors">no-cors</h3>
           <p>
             There are valid reasons for setting mode to <code>no-cors</code> in
             a request header. This is a verbatim answer from Claude made in
@@ -403,6 +458,30 @@
               </li>
             </ol>
             <cite>Claude</cite>
+          </blockquote>
+          <h3 id="simple-requests">Simple requests</h3>
+          <p>This is a helpful summary from ChatGTP:</p>
+          <blockquote>
+            <p>
+              Preflight requests are only sent for cross-origin requests that
+              don’t meet the criteria for "simple" requests, such as when:
+            </p>
+            <ol>
+              <li>The request method is not GET, POST, or HEAD.</li>
+              <li>
+                The request includes custom headers beyond a few permitted ones
+                (Content-Type, Accept, etc.).
+              </li>
+              <li>
+                The Content-Type is not one of the following allowed types:
+                <ul>
+                  <li>application/x-www-form-urlencoded</li>
+                  <li>multipart/form-data</li>
+                  <li>text/plain</li>
+                </ul>
+              </li>
+            </ol>
+            <cite>ChatGPT</cite>
           </blockquote>
         </section>
       </article>
