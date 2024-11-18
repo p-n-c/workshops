@@ -24,7 +24,7 @@
           <em>Style: guided</em>
         </p>
         <p>
-          <em><time datetime="PT1H">Duration: 1 hour</time></em>
+          <em><time datetime="PT2H">Duration: 2 hours</time></em>
         </p>
       </small>
     </header>
@@ -99,14 +99,16 @@
               <h3>Successful request</h3>
               <p>
                 <em>
-                  Uncomment the <code>Access-Control-Allow-Origin</code> header
-                  on the http server.
+                  <strong>Code change</strong>: uncomment the
+                  <code>Access-Control-Allow-Origin</code> header on the http
+                  server.
                 </em>
               </p>
               <p>
                 The wildcard value (<code>*</code>) instructs the browser to
                 allow access to the response from any origin i.e. it allows the
-                JavaScript running on any page to access the response.
+                JavaScript running on any page in the browser to access the
+                response.
               </p>
               <pre><code>Access-Control-Allow-Origin: *</code></pre>
               <p>Send the example request again.</p>
@@ -122,9 +124,15 @@
             <li>
               <h3>CORS: HTTP header-based protocol</h3>
               <p>
+                Cross-Origin Resource Sharing (CORS) allows requests that
+                <abbr title="Same-origin policy">SOP</abbr> would otherwise
+                prevent.
+              </p>
+              <p>
                 <em>
-                  Comment the <code>Access-Control-Allow-Origin</code> header on
-                  the http server again.
+                  <strong>Code change</strong>: comment out the
+                  <code>Access-Control-Allow-Origin</code> header on the http
+                  server again.
                 </em>
               </p>
               <p>Send the example request. Once again, the request fails.</p>
@@ -150,22 +158,29 @@
               <h4>Explicit access: success</h4>
               <p>
                 <em>
-                  Change the value of
+                  <strong>Code change</strong>: change the value of
                   <code>Access-Control-Allow-Origin</code> so that the origin
                   matches that of the requesting origin (the web page in the
-                  browser):
+                  browser).
                 </em>
               </p>
+              <p>
+                You can compare the values of origin by clicking on the request
+                in the network tab (Tip: view the headers in raw mode).
+              </p>
+              <p>Request Headers</p>
+              <pre><code>Origin: http://127.0.0.1:1234</code></pre>
+              <p>Response Headers</p>
               <pre><code>Access-Control-Allow-Origin: http://127.0.0.1:1234</code></pre>
               <p>
-                The allowed origin now matches the <code>Origin</code> passed in
+                The allowed origin now matches the <code>Origin</code> <sup><a id="origin-referer-referring-text" class="local" href="#origin-referer">3</a></sup> passed in
                 the request (set unless specified otherwise by the browser).
               </p>
               <p>The request response is once more accessible.</p>
               <h4>Explicit access: failure</h4>
               <p>
                 <em>
-                  Change the value of
+                  <strong>Code change</strong>: change the value of
                   <code>Access-Control-Allow-Origin</code> so that either the
                   scheme, domain or port does not match e.g. use
                   <code>http<strong>s</strong></code
@@ -180,8 +195,8 @@
               <p>
                 NB the value of the port (1234) can vary. Check the value in the
                 client browser address bar. Do not use
-                <code>localhost</code> for the domain (instead of 127.0.0.1) as
-                this is not supported.
+                <code>localhost</code> for the domain as this is not supported.
+                Use instead 127.0.0.1
               </p>
               <h4>CORS summary</h4>
               <p>
@@ -205,8 +220,9 @@
               <h3>File not found, 404</h3>
               <p>
                 <em>
-                  Uncomment the <code>Access-Control-Allow-Origin</code> header
-                  on the http server.
+                  <strong>Code change</strong>: uncomment the
+                  <code>Access-Control-Allow-Origin</code> header on the http
+                  server.
                 </em>
               </p>
               <p>
@@ -240,11 +256,23 @@
                 to a web page from the command line. One way to do this is by
                 using <a href="https://curl.se/">cURL</a>:
               </p>
-              <pre><code>curl http://localhost:3000/?colour=red</code></pre>
+              <pre><code>curl -i http://localhost:3000/?colour=red</code></pre>
               <p>The response is logged out to the terminal.</p>
+              <pre><code>HTTP/1.1 200 OK
+                Access-Control-Allow-Origin: *
+                Connection: keep-alive
+                Keep-Alive: timeout=5
+                Content-Length: 30
+              </code></pre>
             </li>
             <li>
               <h3>Setting the value of mode in the request header</h3>
+              <p>
+                <em
+                  ><strong>Code change</strong>: set the value of mode to
+                  <code>no-cors</code> in the client</em
+                >.
+              </p>
               <p>
                 By default, the value of <code>mode</code> in the
                 <strong>client</strong> header is <code>cors</code>. This value
@@ -265,7 +293,7 @@
                 <code>no-cors</code>
                 instructs the browser not to send the origin of the request. As
                 a result, the response cannot be accessed. See the section on
-                <a class="local" href="#no-cors"> no-cors in the appendix </a>
+                <a id="no-cors-referring-text" class="local" href="#no-cors"> no-cors in the appendix </a>
                 for reasons why you might want to do this.
               </p>
               <p>The server response is also different:</p>
@@ -273,6 +301,7 @@
             </li>
             <li>
               <h3>POST request</h3>
+              <p><em><strong>Page change:</strong> click on the FETCH POST tab.</em></p>
               <p>
                 A standard post has no
                 <abbr title="Cross-Origin Resource Sharing">CORS</abbr>
@@ -287,6 +316,11 @@
             </li>
             <li>
               <h3>Preflight request</h3>
+              <p>
+                <em
+                  ><strong>Code change</strong>: uncomment the content type header in the client.
+                <em>
+              </p>
               <p>
                 Where a request can cause side-effects, the browser will send a
                 preflight request to the server to check whether the request
@@ -310,6 +344,9 @@
                 To allow this header, it is necessary to explicitly accept the
                 header type on the <strong>server</strong>:
               </p>
+              <p>
+                <em><strong>Code change</strong>: uncomment the <code>Access-Control-Allow-Headers</code> setting on the server.</em>
+              </p>              
               <pre><code>res.setHeader('Access-Control-Allow-Headers', 'Content-Type')</code></pre>
               <p>
                 The preflight <code>OPTIONS</code> request now passes and the
@@ -333,6 +370,7 @@
             </li>
             <li>
               <h3>Form submission</h3>
+              <p><em><strong>Page change:</strong> click on the FORM POST tab.</em></p>
               <p>
                 Form submissions are unaffected by
                 <abbr title="Cross-Origin Resource Sharing">CORS</abbr>. No
@@ -352,7 +390,7 @@
               </p>
               <p>
                 See the section on
-                <a class="local" href="#simple-requests">Simple requests</a> in
+                <a id="simple-requests-referring-text" class="local" href="#simple-requests">Simple requests</a> in
                 the appendix for more detail.
               </p>
             </li>
@@ -419,73 +457,93 @@
         </section>
         <section aria-labelledby="appendix">
           <h2 id="appendix">Appendix</h2>
-          <h3 id="no-cors">no-cors</h3>
-          <p>
-            There are valid reasons for setting mode to <code>no-cors</code> in
-            a request header. This is a verbatim answer from Claude made in
-            response to my question asking why I might want to set mode to
-            no-cors:
-          </p>
-          <blockquote>
-            <p>
-              The 'no-cors' mode in a client request header is used in a few
-              specific scenarios:
-            </p>
-            <ol>
-              <li>
-                <strong
-                  >Cross-Origin Resource Sharing (CORS) Restrictions</strong
-                >: If you're making a request to a resource that is hosted on a
-                different origin (different domain, subdomain, port, or
-                protocol) than your web application, the browser may block the
-                request due to CORS restrictions. Setting the mode to 'no-cors'
-                allows you to bypass these restrictions and make the request,
-                but it also means you won't be able to access the response data
-                in your JavaScript code due to the same-origin policy.
-              </li>
-              <li>
-                <strong
-                  >Accessing Resources from Content Delivery Networks
-                  (CDNs)</strong
-                >: When making requests to resources (e.g., fonts, images,
-                scripts) hosted on a CDN, you may need to use 'no-cors' mode to
-                bypass CORS checks and load the resources correctly in your web
-                application.
-              </li>
-              <li>
-                <strong>Interoperability with Legacy Systems</strong>:
-                Sometimes, you may need to interact with older or legacy systems
-                that don't properly implement CORS headers. Setting 'no-cors'
-                mode can help you work around these issues and make the
-                necessary requests.
-              </li>
-            </ol>
-            <cite>Claude</cite>
-          </blockquote>
-          <h3 id="simple-requests">Simple requests</h3>
-          <p>This is a helpful summary from ChatGTP:</p>
-          <blockquote>
-            <p>
-              Preflight requests are only sent for cross-origin requests that
-              don’t meet the criteria for "simple" requests, such as when:
-            </p>
-            <ol>
-              <li>The request method is not GET, POST, or HEAD.</li>
-              <li>
-                The request includes custom headers beyond a few permitted ones
-                (Content-Type, Accept, etc.).
-              </li>
-              <li>
-                The Content-Type is not one of the following allowed types:
-                <ul>
-                  <li>application/x-www-form-urlencoded</li>
-                  <li>multipart/form-data</li>
-                  <li>text/plain</li>
-                </ul>
-              </li>
-            </ol>
-            <cite>ChatGPT</cite>
-          </blockquote>
+          <ol>
+            <li>
+              <section aria-labelledby="no-cors">
+                <h3 id="no-cors">no-cors</h3>
+                <p>
+                  There are valid reasons for setting mode to <code>no-cors</code> in
+                  a request header. This is a verbatim answer from Claude made in
+                  response to my question asking why I might want to set mode to
+                  no-cors:
+                </p>
+                <blockquote>
+                  <p>
+                    The 'no-cors' mode in a client request header is used in a few
+                    specific scenarios:
+                  </p>
+                  <ol>
+                    <li>
+                      <strong
+                        >Cross-Origin Resource Sharing (CORS) Restrictions</strong
+                      >: If you're making a request to a resource that is hosted on a
+                      different origin (different domain, subdomain, port, or
+                      protocol) than your web application, the browser may block the
+                      request due to CORS restrictions. Setting the mode to 'no-cors'
+                      allows you to bypass these restrictions and make the request,
+                      but it also means you won't be able to access the response data
+                      in your JavaScript code due to the same-origin policy.
+                    </li>
+                    <li>
+                      <strong
+                        >Accessing Resources from Content Delivery Networks
+                        (CDNs)</strong
+                      >: When making requests to resources (e.g., fonts, images,
+                      scripts) hosted on a CDN, you may need to use 'no-cors' mode to
+                      bypass CORS checks and load the resources correctly in your web
+                      application.
+                    </li>
+                    <li>
+                      <strong>Interoperability with Legacy Systems</strong>:
+                      Sometimes, you may need to interact with older or legacy systems
+                      that don't properly implement CORS headers. Setting 'no-cors'
+                      mode can help you work around these issues and make the
+                      necessary requests.
+                    </li>
+                  </ol>
+                  <cite>Claude</cite>
+                </blockquote>
+                <p><a class="local" href="#no-cors-referring-text">Back to referring text</a></p>
+              </section>
+            </li>
+            <li>
+              <section aria-labelledby="simple-requests">
+                <h3 id="simple-requests">Simple requests</h3>
+                <p>This is a helpful summary from ChatGTP:</p>
+                <blockquote>
+                  <p>
+                    Preflight requests are only sent for cross-origin requests that
+                    don’t meet the criteria for "simple" requests, such as when:
+                  </p>
+                  <ol>
+                    <li>The request method is not GET, POST, or HEAD.</li>
+                    <li>
+                      The request includes custom headers beyond a few permitted ones
+                      (Content-Type, Accept, etc.).
+                    </li>
+                    <li>
+                      The Content-Type is not one of the following allowed types:
+                      <ul>
+                        <li>application/x-www-form-urlencoded</li>
+                        <li>multipart/form-data</li>
+                        <li>text/plain</li>
+                      </ul>
+                    </li>
+                  </ol>
+                  <cite>ChatGPT</cite>
+                </blockquote>
+                <p><a class="local" href="#simple-requests-referring-text">Back to referring text</a></p>
+              </section>
+            </li>
+            <li>
+              <section aria-labelledby="origin-referer">
+               <h3 id="origin-referer">The difference between origin and referer</h3>
+               <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">Origin</a></code> is the origin of the request. </p>
+               <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer">Referer</a></code> contains the absolute or partial address from which a resource has been requested. It can therefore contain the path, querystring in addition to the origin.</p>               
+               <p><a class="local" href="#origin-referer-referring-text">Back to referring text</a></p>               
+              </section>
+            </li>
+          </ol>
         </section>
       </article>
     </main>

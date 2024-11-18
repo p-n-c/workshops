@@ -23,7 +23,7 @@ h6 {
 
 /* :is() only supported in newer browsers */
 
-:is(*):not(h1, h2, h3, h4, h5, h6, small) {
+:is(*):not(h1, h2, h3, h4, h5, h6, small, sup) {
   font-size: 1.1rem;
 }
 
@@ -58,12 +58,10 @@ code {
 }
 
 pre {
-  white-space: normal;
+  white-space: pre-line;
   background-color: var(--box-colour);
   padding: 0.5rem;
   padding: 1em;
-  overflow-x: hidden;
-  word-wrap: break-word;
 
   & code {
     display: block;
@@ -87,6 +85,10 @@ footer {
     padding: calc(var(--d) * 2) 0;
     border-top: 2px solid var(--border-colour);
   }
+}
+
+ol > li::marker {
+  font-weight: bold;
 }
 
 /* controls */
@@ -253,6 +255,13 @@ a:visited {
 
 a:hover {
   text-decoration-line: underline overline;
+}
+
+sup {
+  a {
+    font-size: 0.8rem;
+    text-underline-offset: calc(var(--d) * 1);
+  }
 }
 
 /* data */
