@@ -60,8 +60,10 @@
             <li>
               <h3>Same-origin policy in the browser</h3>
               <p>
-                Start the server and add a request in the form of a query string
-                in the address bar:
+                <em
+                  ><strong>Browser</strong>: start the http server and open a
+                  new web browser. Enter this request in the address bar:</em
+                >
               </p>
               <pre><code>http://localhost:3000?colour=red</code></pre>
               <p>
@@ -83,9 +85,15 @@
             <li>
               <h3>Unsuccessful request</h3>
               <p>
-                The same-origin policy (SOP) prevents requests from a web page
-                (one origin) accessing the response to a request sent to a
-                different origin.
+                <em
+                  ><strong>Browser</strong>: start the http client and open it
+                  in the browser.</em
+                >
+              </p>
+              <p>
+                The same-origin policy (SOP) prevents requests from a web
+                Browser (one origin) accessing the response to a request sent to
+                a different origin.
               </p>
               <p>
                 Start up the http client and send a request to our local http
@@ -99,7 +107,7 @@
               <h3>Successful request</h3>
               <p>
                 <em>
-                  <strong>Code change</strong>: uncomment the
+                  <strong>Code</strong>: uncomment the
                   <code>Access-Control-Allow-Origin</code> header on the http
                   server.
                 </em>
@@ -107,7 +115,7 @@
               <p>
                 The wildcard value (<code>*</code>) instructs the browser to
                 allow access to the response from any origin i.e. it allows the
-                JavaScript running on any page in the browser to access the
+                JavaScript running on any Browser in the browser to access the
                 response.
               </p>
               <pre><code>Access-Control-Allow-Origin: *</code></pre>
@@ -130,7 +138,7 @@
               </p>
               <p>
                 <em>
-                  <strong>Code change</strong>: comment out the
+                  <strong>Code</strong>: comment out the
                   <code>Access-Control-Allow-Origin</code> header on the http
                   server again.
                 </em>
@@ -151,26 +159,33 @@
                 </p>
               </blockquote>
               <p>
-                Check the server console. You will see that although the browser
-                has blocked access to the response, the server did process the
-                request, and send a valid response.
+                The <code>CORS error</code> is also recorded in Status field of
+                the network tab.
               </p>
-              <h4>Explicit access: success</h4>
+              <p>Now check the server console.</p>
+              <p>
+                You will see that although the browser has blocked access to the
+                response, the server processed the request, and send a valid
+                response.
+              </p>
+              <h4>A matching requesting origin</h4>
               <p>
                 <em>
-                  <strong>Code change</strong>: change the value of
+                  <strong>Code</strong>: change the value of
                   <code>Access-Control-Allow-Origin</code> so that the origin
-                  matches that of the requesting origin (the web page in the
+                  matches that of the requesting origin (the web browser in the
                   browser).
                 </em>
               </p>
               <p>
                 You can compare the values of origin by clicking on the request
-                in the network tab (Tip: view the headers in raw mode).
+                in the network tab (<em
+                  ><strong>Tip</strong>: view the headers in raw mode</em
+                >).
               </p>
-              <p>Request Headers</p>
+              <p>Request Header</p>
               <pre><code>Origin: http://127.0.0.1:1234</code></pre>
-              <p>Response Headers</p>
+              <p>Response Header</p>
               <pre><code>Access-Control-Allow-Origin: http://127.0.0.1:1234</code></pre>
               <p>
                 The allowed origin now matches the <code>Origin</code>
@@ -186,10 +201,10 @@
                 browser).
               </p>
               <p>The request response is once more accessible.</p>
-              <h4>Explicit access: failure</h4>
+              <h4>A non-matching requesting origin</h4>
               <p>
                 <em>
-                  <strong>Code change</strong>: change the value of
+                  <strong>Code</strong>: change the value of
                   <code>Access-Control-Allow-Origin</code> so that either the
                   scheme, domain or port does not match e.g. use
                   <code>http<strong>s</strong></code
@@ -202,17 +217,22 @@
               </p>
               <pre><code>Access-Control-Allow-Origin: https://127.0.0.1:1234</code></pre>
               <p>
-                NB the value of the port (1234) can vary. Check the value in the
-                client browser address bar. Do not use
-                <code>localhost</code> for the domain as this is not supported.
-                Use instead 127.0.0.1
+                NB The value of the port (1234) can vary. Check the value in the
+                client browser address bar. The match must be exact;
+                <code>localhost</code> is not the same as
+                <code>127.0.0.1</code> and vice versa.
+              </p>
+              <p>
+                It is not possible to enter multiple origins but it is possible
+                to check a URL against an allowed list. If there is a match, the
+                request origin is set as the allowed origin.
               </p>
               <h4>CORS summary</h4>
               <p>
                 Cross-Origin Resource Sharing (CORS) is a security mechanism
                 implemented by browsers. The value of
                 <code>Access-Control-Allow-Origin</code> affects whether or not
-                the browser passes the response onto the web page client.
+                the browser passes the response onto the web browser client.
               </p>
               <p>
                 It is not a way to safeguard access to the
@@ -224,44 +244,17 @@
                 CORS is a browser access feature, not a server security feature.
               </aside>
             </li>
-            <!-- <li>
-              <h3>File not found, 404</h3>
-              <p>
-                <em>
-                  <strong>Code change</strong>: uncomment the
-                  <code>Access-Control-Allow-Origin</code> header on the http
-                  server.
-                </em>
-              </p>
-              <p>
-                Send a request to our local http server asking for the hex value
-                of a colour that doesn't exist e.g.:
-                <code>http://localhost:3000/?colour=happy</code>
-              </p>
-              <p>
-                The browser returns a
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
-                  >404 error</a
-                >
-                to the page.
-              </p>
-              <pre><code>Response status: 404</code></pre>
-              <p>
-                An alternative strategy to returning a 404 in this case would be
-                to return a response with a status of 200 (success), an empty
-                value (null perhaps) and a message indicating no match was
-                found.
-              </p>
-            </li> -->
             <li>
               <h3>Clients other than browsers</h3>
+              <p>
+                <em><strong>Terminal</strong>: open a new terminal window.</em>
+              </p>
               <p>
                 Clients other than browsers can access a request resource
                 regardless of the value of
                 <code>Access-Control-Allow-Origin</code>. This can be verified
                 by replicating a request for which the response is unavailable
-                to a web page from the command line. One way to do this is by
+                to a web browser from the command line. One way to do this is by
                 using <a href="https://curl.se/">cURL</a>:
               </p>
               <pre><code>curl -i http://localhost:3000/?colour=red</code></pre>
@@ -277,7 +270,7 @@
               <h3>Setting the value of mode in the request header</h3>
               <p>
                 <em
-                  ><strong>Code change</strong>: set the value of mode to
+                  ><strong>Code</strong>: set the value of mode to
                   <code>no-cors</code> in the client</em
                 >.
               </p>
@@ -312,10 +305,7 @@
             <li>
               <h3>POST request</h3>
               <p>
-                <em
-                  ><strong>Page change:</strong> click on the FETCH POST
-                  tab.</em
-                >
+                <em><strong>Browser</strong>: click on the FETCH POST tab.</em>
               </p>
               <p>
                 A standard post has no
@@ -324,7 +314,7 @@
                 <code>Access-Control-Allow-Origin</code> permits the request.
               </p>
               <p>
-                Please note, the
+                NB The
                 <code>POST</code> request <strong>will be made</strong> even
                 when the response from the server is unavailable!
               </p>
@@ -333,8 +323,8 @@
               <h3>Preflight request</h3>
               <p>
                 <em>
-                  <strong>Code change</strong>: uncomment the content type
-                  header in the client.
+                  <strong>Code</strong>: uncomment the content type header in
+                  the client.
                 </em>
               </p>
               <p>
@@ -362,7 +352,7 @@
               </p>
               <p>
                 <em
-                  ><strong>Code change</strong>: uncomment the
+                  ><strong>Code</strong>: uncomment the
                   <code>Access-Control-Allow-Headers</code> setting on the
                   server.</em
                 >
@@ -391,9 +381,7 @@
             <li>
               <h3>Form submission</h3>
               <p>
-                <em
-                  ><strong>Page change:</strong> click on the FORM POST tab.</em
-                >
+                <em><strong>Browser</strong>: click on the FORM POST tab.</em>
               </p>
               <p>
                 Form submissions are unaffected by
@@ -404,8 +392,8 @@
                 To prevent Cross-Site Request Forgery (<a
                   href="https://developer.mozilla.org/en-US/docs/Glossary/CSRF"
                   >CSRF</a
-                >), however, the server must be defended against malicious
-                actions. This topic is not covered here.
+                >), the server must be defended against malicious actions. This
+                topic is not covered here.
               </p>
               <p>
                 <abbr title="Cross-Origin Resource Sharing">CORS</abbr> only
@@ -435,7 +423,7 @@
             >.
           </p>
           <p>
-            From a web page, we made a number of <code>GET</code> and
+            From a web browser, we made a number of <code>GET</code> and
             <code>POST</code> requests against this server using the
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
               >fetch API</a
@@ -446,7 +434,7 @@
             to demonstrate that
             <abbr title="Cross-Origin Resource Sharing">CORS</abbr> is enabled
             by configuring the server but is used by the browser to control
-            whether or not a web page (and the JavaScript running on it) has
+            whether or not a web browser (and the JavaScript running on it) has
             access to the response.
           </p>
           <section aria-labelledby="browser-policy-mechanism">
