@@ -173,8 +173,17 @@
               <p>Response Headers</p>
               <pre><code>Access-Control-Allow-Origin: http://127.0.0.1:1234</code></pre>
               <p>
-                The allowed origin now matches the <code>Origin</code> <sup><a id="origin-referer-referring-text" class="local" href="#origin-referer">3</a></sup> passed in
-                the request (set unless specified otherwise by the browser).
+                The allowed origin now matches the <code>Origin</code>
+                <sup
+                  ><a
+                    id="origin-referer-referring-text"
+                    class="local"
+                    href="#origin-referer"
+                    >3</a
+                  ></sup
+                >
+                passed in the request (set unless specified otherwise by the
+                browser).
               </p>
               <p>The request response is once more accessible.</p>
               <h4>Explicit access: failure</h4>
@@ -293,7 +302,9 @@
                 <code>no-cors</code>
                 instructs the browser not to send the origin of the request. As
                 a result, the response cannot be accessed. See the section on
-                <a id="no-cors-referring-text" class="local" href="#no-cors"> no-cors in the appendix </a>
+                <a id="no-cors-referring-text" class="local" href="#no-cors">
+                  no-cors in the appendix
+                </a>
                 for reasons why you might want to do this.
               </p>
               <p>The server response is also different:</p>
@@ -301,7 +312,12 @@
             </li>
             <li>
               <h3>POST request</h3>
-              <p><em><strong>Page change:</strong> click on the FETCH POST tab.</em></p>
+              <p>
+                <em
+                  ><strong>Page change:</strong> click on the FETCH POST
+                  tab.</em
+                >
+              </p>
               <p>
                 A standard post has no
                 <abbr title="Cross-Origin Resource Sharing">CORS</abbr>
@@ -317,9 +333,10 @@
             <li>
               <h3>Preflight request</h3>
               <p>
-                <em
-                  ><strong>Code change</strong>: uncomment the content type header in the client.
                 <em>
+                  <strong>Code change</strong>: uncomment the content type
+                  header in the client.
+                </em>
               </p>
               <p>
                 Where a request can cause side-effects, the browser will send a
@@ -345,8 +362,12 @@
                 header type on the <strong>server</strong>:
               </p>
               <p>
-                <em><strong>Code change</strong>: uncomment the <code>Access-Control-Allow-Headers</code> setting on the server.</em>
-              </p>              
+                <em
+                  ><strong>Code change</strong>: uncomment the
+                  <code>Access-Control-Allow-Headers</code> setting on the
+                  server.</em
+                >
+              </p>
               <pre><code>res.setHeader('Access-Control-Allow-Headers', 'Content-Type')</code></pre>
               <p>
                 The preflight <code>OPTIONS</code> request now passes and the
@@ -370,7 +391,11 @@
             </li>
             <li>
               <h3>Form submission</h3>
-              <p><em><strong>Page change:</strong> click on the FORM POST tab.</em></p>
+              <p>
+                <em
+                  ><strong>Page change:</strong> click on the FORM POST tab.</em
+                >
+              </p>
               <p>
                 Form submissions are unaffected by
                 <abbr title="Cross-Origin Resource Sharing">CORS</abbr>. No
@@ -390,8 +415,13 @@
               </p>
               <p>
                 See the section on
-                <a id="simple-requests-referring-text" class="local" href="#simple-requests">Simple requests</a> in
-                the appendix for more detail.
+                <a
+                  id="simple-requests-referring-text"
+                  class="local"
+                  href="#simple-requests"
+                  >Simple requests</a
+                >
+                in the appendix for more detail.
               </p>
             </li>
           </ol>
@@ -420,6 +450,44 @@
             whether or not a web page (and the JavaScript running on it) has
             access to the response.
           </p>
+          <section aria-labelledby="browser-policy-mechanism">
+            <h3 id="browser-policy-mechanism">Browser policy mechanism</h3>
+            <p>
+              There is a lot of confusion around
+              <abbr title="Cross-Origin Resource Sharing">CORS</abbr> and
+              <abbr title="Large language models">LLMs</abbr>
+              are no more reliable than many other sources. This summary from
+              Claude, however, is correct:
+            </p>
+            <blockquote>
+              <p>
+                <abbr title="Cross-Origin Resource Sharing">CORS</abbr> is
+                better described as a "browser policy mechanism" rather than a
+                "security feature". It's designed to enforce the Same-Origin
+                Policy (SOP) in browsers, but doesn't provide true security
+                against malicious actors.
+              </p>
+              <h4>What CORS is about</h4>
+              <ol>
+                <li>Browser policy enforcement</li>
+                <li>
+                  Controlling which web applications can interact with your API
+                  directly from browsers
+                </li>
+                <li>
+                  Developer experience (allowing legitimate cross-origin
+                  requests when needed)
+                </li>
+              </ol>
+              <h4>What CORS isn't about</h4>
+              <ol>
+                <li>Preventing server-to-server attacks</li>
+                <li>Protecting against stolen credentials</li>
+                <li>Real security against determined attackers</li>
+              </ol>
+              <cite>Claude</cite>
+            </blockquote>
+          </section>
         </section>
         <section aria-labelledby="related-workshops">
           <h2 id="related-workshops">Related workshops</h2>
@@ -446,6 +514,16 @@
                   >How to set up an HTTP server and client</a
                 >
               </li>
+              <li>
+                <a href="https://jakearchibald.com/2021/cors/playground/"
+                  >CORS playground</a
+                >
+              </li>
+              <li>
+                <a href="https://corssimulator.tomgregory.com/"
+                  >CORS simulator</a
+                >
+              </li>
             </ul>
           </nav>
         </section>
@@ -462,48 +540,54 @@
               <section aria-labelledby="no-cors">
                 <h3 id="no-cors">no-cors</h3>
                 <p>
-                  There are valid reasons for setting mode to <code>no-cors</code> in
-                  a request header. This is a verbatim answer from Claude made in
-                  response to my question asking why I might want to set mode to
-                  no-cors:
+                  There are valid reasons for setting mode to
+                  <code>no-cors</code> in a request header. This is a verbatim
+                  answer from Claude made in response to my question asking why
+                  I might want to set mode to no-cors:
                 </p>
                 <blockquote>
                   <p>
-                    The 'no-cors' mode in a client request header is used in a few
-                    specific scenarios:
+                    The 'no-cors' mode in a client request header is used in a
+                    few specific scenarios:
                   </p>
                   <ol>
                     <li>
                       <strong
-                        >Cross-Origin Resource Sharing (CORS) Restrictions</strong
-                      >: If you're making a request to a resource that is hosted on a
-                      different origin (different domain, subdomain, port, or
-                      protocol) than your web application, the browser may block the
-                      request due to CORS restrictions. Setting the mode to 'no-cors'
-                      allows you to bypass these restrictions and make the request,
-                      but it also means you won't be able to access the response data
-                      in your JavaScript code due to the same-origin policy.
+                        >Cross-Origin Resource Sharing (CORS)
+                        Restrictions</strong
+                      >: If you're making a request to a resource that is hosted
+                      on a different origin (different domain, subdomain, port,
+                      or protocol) than your web application, the browser may
+                      block the request due to CORS restrictions. Setting the
+                      mode to 'no-cors' allows you to bypass these restrictions
+                      and make the request, but it also means you won't be able
+                      to access the response data in your JavaScript code due to
+                      the same-origin policy.
                     </li>
                     <li>
                       <strong
                         >Accessing Resources from Content Delivery Networks
                         (CDNs)</strong
                       >: When making requests to resources (e.g., fonts, images,
-                      scripts) hosted on a CDN, you may need to use 'no-cors' mode to
-                      bypass CORS checks and load the resources correctly in your web
-                      application.
+                      scripts) hosted on a CDN, you may need to use 'no-cors'
+                      mode to bypass CORS checks and load the resources
+                      correctly in your web application.
                     </li>
                     <li>
                       <strong>Interoperability with Legacy Systems</strong>:
-                      Sometimes, you may need to interact with older or legacy systems
-                      that don't properly implement CORS headers. Setting 'no-cors'
-                      mode can help you work around these issues and make the
-                      necessary requests.
+                      Sometimes, you may need to interact with older or legacy
+                      systems that don't properly implement CORS headers.
+                      Setting 'no-cors' mode can help you work around these
+                      issues and make the necessary requests.
                     </li>
                   </ol>
                   <cite>Claude</cite>
                 </blockquote>
-                <p><a class="local" href="#no-cors-referring-text">Back to referring text</a></p>
+                <p>
+                  <a class="local" href="#no-cors-referring-text"
+                    >Back to referring text</a
+                  >
+                </p>
               </section>
             </li>
             <li>
@@ -512,17 +596,19 @@
                 <p>This is a helpful summary from ChatGTP:</p>
                 <blockquote>
                   <p>
-                    Preflight requests are only sent for cross-origin requests that
-                    don’t meet the criteria for "simple" requests, such as when:
+                    Preflight requests are only sent for cross-origin requests
+                    that don’t meet the criteria for "simple" requests, such as
+                    when:
                   </p>
                   <ol>
                     <li>The request method is not GET, POST, or HEAD.</li>
                     <li>
-                      The request includes custom headers beyond a few permitted ones
-                      (Content-Type, Accept, etc.).
+                      The request includes custom headers beyond a few permitted
+                      ones (Content-Type, Accept, etc.).
                     </li>
                     <li>
-                      The Content-Type is not one of the following allowed types:
+                      The Content-Type is not one of the following allowed
+                      types:
                       <ul>
                         <li>application/x-www-form-urlencoded</li>
                         <li>multipart/form-data</li>
@@ -532,15 +618,45 @@
                   </ol>
                   <cite>ChatGPT</cite>
                 </blockquote>
-                <p><a class="local" href="#simple-requests-referring-text">Back to referring text</a></p>
+                <p>
+                  <a class="local" href="#simple-requests-referring-text"
+                    >Back to referring text</a
+                  >
+                </p>
               </section>
             </li>
             <li>
               <section aria-labelledby="origin-referer">
-               <h3 id="origin-referer">The difference between origin and referer</h3>
-               <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">Origin</a></code> is the origin of the request. </p>
-               <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer">Referer</a></code> contains the absolute or partial address from which a resource has been requested. It can therefore contain the path, querystring in addition to the origin.</p>               
-               <p><a class="local" href="#origin-referer-referring-text">Back to referring text</a></p>               
+                <h3 id="origin-referer">
+                  The difference between origin and referer
+                </h3>
+                <p>
+                  The
+                  <code
+                    ><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin"
+                      >Origin</a
+                    ></code
+                  >
+                  is the origin of the request.
+                </p>
+                <p>
+                  The
+                  <code
+                    ><a
+                      href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer"
+                      >Referer</a
+                    ></code
+                  >
+                  contains the absolute or partial address from which a resource
+                  has been requested. It can therefore contain the path,
+                  querystring in addition to the origin.
+                </p>
+                <p>
+                  <a class="local" href="#origin-referer-referring-text"
+                    >Back to referring text</a
+                  >
+                </p>
               </section>
             </li>
           </ol>
