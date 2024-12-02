@@ -8,4 +8,15 @@
     ],
     "description": "Section",
   },
+  "Action": {
+    "prefix": "pac-action",
+    "body": [
+      "<p>",
+      "  <em>",
+      "    <strong>${1:action}</strong>: ${2:action description}",
+      "  </em>",
+      "</p>",
+    ],
+    "description": "Workshop action",
+  },
 }

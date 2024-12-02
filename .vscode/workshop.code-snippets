@@ -1,6 +1,6 @@
 {
   "workshop": {
-    "prefix": "ws",
+    "prefix": ["pac-ws"],
     "body": [
       "<!doctype html>",
       "<html lang=\"en\">",
@@ -15,7 +15,7 @@
       "    <header>",
       "      <h1>${2:Page title}</h1>",
       "      <p>",
-      "        <strong>Punchy takeaway…</strong>",
+      "        <strong>Workshop subject</strong>",
       "      </p>      ",
       "      <small>",
       "        <p>",
@@ -31,6 +31,13 @@
       "          <ul aria-label=\"workshop-outcomes\">",
       "            <li>Outcome…</li>",
       "          </ul>",
+      "        </section>",
+      "        <section aria-labelledby=\"exercises\">",
+      "          <h2 id=\"exercises\">Exercises</h2>",
+      "          <ol aria-label=\"exercise-list\">",
+      "            <li><h3>First exercise</h3></li>",
+      "            <li><h3>Second exercise</h3></li>",
+      "          </ol>",
       "        </section>",
       "        <section aria-labelledby=\"summary\">",
       "          <h2 id=\"summary\">Summary</h2>",
