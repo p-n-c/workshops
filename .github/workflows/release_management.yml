@@ -1,6 +1,12 @@
 name: Release Management
 
 on:
+  workflow_dispatch:
+    inputs:
+      version_override:
+        description: 'Version override (leave empty for auto-increment)'
+        required: false
+        type: string
   push:
     branches:
       - test-versioning
@@ -8,6 +14,9 @@ on:
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,13 +33,17 @@ jobs:
           CURRENT_VERSION=$(node -p "require('./package.json').version")
           echo "current_version=${CURRENT_VERSION}" >> $GITHUB_OUTPUT
 
-      - name: Increment build number
+      - name: Set version
         id: version
         run: |
-          IFS='.' read -r major minor build <<< "${{ steps.current_version.outputs.current_version }}"
-          new_build=$((build + 1))
-          NEW_VERSION="${major}.${minor}.${new_build}"
-          echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+          if [ "${{ github.event.inputs.version_override }}" != "" ]; then
+            echo "new_version=${{ github.event.inputs.version_override }}" >> $GITHUB_OUTPUT
+          else
+            IFS='.' read -r major minor build <<< "${{ steps.current_version.outputs.current_version }}"
+            new_build=$((build + 1))
+            NEW_VERSION="${major}.${minor}.${new_build}"
+            echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Update package.json
         run: |
@@ -49,3 +62,11 @@ jobs:
           draft: false
           prerelease: false
           token: ${{ secrets.RELEASE_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add package.json index.html
+          git commit -m "Update version to ${{ steps.version.outputs.new_version }}"
+          git push
