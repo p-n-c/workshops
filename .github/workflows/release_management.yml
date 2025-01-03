@@ -1,0 +1,51 @@
+name: Release Management
+
+on:
+  push:
+    branches:
+      - netlify-deploy
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Get current version
+        id: current_version
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "current_version=${CURRENT_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Increment build number
+        id: version
+        run: |
+          IFS='.' read -r major minor build <<< "${{ steps.current_version.outputs.current_version }}"
+          new_build=$((build + 1))
+          NEW_VERSION="${major}.${minor}.${new_build}"
+          echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Update package.json
+        run: |
+          npm version ${{ steps.version.outputs.new_version }} --no-git-tag-version
+
+      - name: Inject version into HTML
+        run: |
+          VERSION=${{ steps.version.outputs.new_version }}
+          sed -i "s/<meta name=\"version\" content=\".*\">/<meta name=\"version\" content=\"${VERSION}\">/" index.html
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.new_version }}
+          name: Release v${{ steps.version.outputs.new_version }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
