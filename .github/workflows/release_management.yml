@@ -3,7 +3,7 @@ name: Release Management
 on:
   push:
     branches:
-      - netlify-deploy
+      - test-versioning
 
 jobs:
   create-release:
