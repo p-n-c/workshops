@@ -2,7 +2,7 @@
   "name": "workshops",
   "version": "0.0.1",
   "description": "workshops",
-  "author": "dan",
+  "author": "people and code",
   "type": "module",
   "scripts": {
     "lint": "eslint . && prettier --check . && stylelint '**/*.{css,scss}'",
