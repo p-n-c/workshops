@@ -27,9 +27,8 @@ jobs:
         with:
           node-version: '18.x'
 
-     - name: Sync with main
-        run: |
-          git push origin HEAD:main
+      - name: Sync with main
+        run: git push origin HEAD:main
 
       - name: Get current version
         id: current_version
