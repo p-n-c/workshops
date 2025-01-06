@@ -27,9 +27,6 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Sync with main
-        run: git push origin HEAD:main
-
       - name: Get current version
         id: current_version
         run: |
@@ -73,3 +70,6 @@ jobs:
           git add package.json ./src/index.html
           git commit -m "Update version to ${{ steps.version.outputs.new_version }}"
           git push
+
+      - name: Sync with main
+        run: git push origin HEAD:main
