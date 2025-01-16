@@ -60,8 +60,7 @@ code {
 pre {
   white-space: pre-line;
   background-color: var(--box-colour);
-  padding: 0.5rem;
-  padding: 1em;
+  padding: calc(var(--d) * 2);
 
   & code {
     display: block;

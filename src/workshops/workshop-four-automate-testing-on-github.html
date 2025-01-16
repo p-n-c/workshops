@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Workshop from People and Code on how to automate testing on GitHub."
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Workshop four: Automate Testing on GitHub</title>
+  </head>
+  <body class="body">
+    <header>
+      <h1>Workshop four: Automate Testing on GitHub</h1>
+      <p>
+        <strong>Workshop subject</strong>
+      </p>
+      <p>
+        <small><em>Style: guided</em></small>
+      </p>
+      <p>
+        <small
+          ><em><time datetime="PT1H">Duration: 1 hour</time></em></small
+        >
+      </p>
+    </header>
+    <main class="main">
+      <article>
+        <section aria-labelledby="overview">
+          <h2 id="overview">Overview</h2>
+          <p>
+            - Before starting this workshop, check you have the
+            <a class="local" href="/src/how-to/set-up-a-project-with-tests.html"
+              >requisite tools and setup</a
+            >.
+          </p>
+          <ul aria-label="workshop-outcomes">
+            <li></li>
+          </ul>
+          <p>- By the end of this workshop, you will be able to:</p>
+          <ul>
+            <li>Run project + tests locally</li>
+            <li>Add GitHub workflow to run unit and e2e tests</li>
+          </ul>
+        </section>
+        <section aria-labelledby="exercises">
+          <h2 id="exercises">Exercises</h2>
+          <ol aria-label="exercise-list">
+            <li>
+              <h3>Configure a new workflow</h3>
+              <p>Select "Actions" from your repository tabs menu.</p>
+              <p>
+                In the "Continuous integration" section, click the "Configure"
+                button for Node.js.
+              </p>
+              <p>For the demo project, we made two changes.</p>
+              <p>We limited the node versions to one:</p>
+              <pre>
+                <code>
+                matrix:
+                &nbsp;&nbsp;node-version: [22.x]
+                </code>
+              </pre>
+              <p>And explicity set which tests should run:</p>
+              <pre>
+                <code>
+                  - run: npm run tests
+                  - run: npm run tests:e2e:headless
+                </code>
+              </pre>
+            </li>
+          </ol>
+        </section>
+        <section aria-labelledby="summary">
+          <h2 id="summary">Summary</h2>
+        </section>
+        <section aria-labelledby="related-workshops">
+          <h2 id="related-workshops">Related workshops</h2>
+          <nav aria-label="Related workshops">
+            <ul>
+              <li>Workshop three: TBD</li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="how-to">
+          <h2 id="how-to">How to…</h2>
+          <nav aria-label="How to resources">
+            <ul>
+              <li>
+                <a
+                  class="local"
+                  href="/src/how-to/set-up-a-project-with-tests.html"
+                  >How to set up a project with tests</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="supporting-materials">
+          <h2 id="supporting-materials">Supporting materials</h2>
+          <ul>
+            <li>
+              <a href="https://github.com/p-n-c/web-project-generator"
+                >Web project generator</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/p-n-c/website-tests-demo"
+                >Demo project</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section aria-labelledby="further-reading">
+          <h2 id="further-reading">Further reading</h2>
+          <ul>
+            <li>
+              <a
+                href="https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs"
+                >Building and testing Node.js</a
+              >
+            </li>
+            <li>
+              <a href="https://martinfowler.com/delivery.html"
+                >Software Delivery Guide</a
+              >
+              <div><em>Martin Fowler</em></div>
+            </li>
+            <li>
+              <a href="https://trunkbaseddevelopment.com/"
+                >Trunk Based Development</a
+              >
+              <div><em>Paul Hammant</em></div>
+            </li>
+            <li>
+              <a href="https://www.conventionalcommits.org/en/v1.0.0/"
+                >Conventional Commits</a
+              >
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <nav aria-label="Primary">
+        <a href="/src/sitemap.html">Contents</a>
+      </nav>
+    </footer>
+  </body>
+</html>
