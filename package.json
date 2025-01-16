@@ -11,7 +11,8 @@
     "build": "parcel build --dist-dir dist"
   },
   "source": [
-    "./src/index.html"
+    "./src/index.html",
+    "./src/workshops/workshop-template.html"
   ],
   "devDependencies": {
     "eslint": "latest",
