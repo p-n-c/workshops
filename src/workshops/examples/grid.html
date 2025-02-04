@@ -10,12 +10,27 @@
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/workshops/examples/grid.css" />
     <title>CSS Grid examples</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body id="grid" class="body">
     <header>
-      <h1>CSS Grid examples</h1>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>CSS Grid examples</h1>
+      </div>
     </header>
-    <main id="grid-example" class="main">
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
       <p>The grid layout is a two-dimensional layout system.</p>
       <section aria-labelledby="grid-examples">
         <h2 id="grid-examples">Grid examples</h2>
@@ -104,10 +119,15 @@
         </ul>
       </section>
     </main>
-    <footer>
+    <footer id="footer">
       <nav aria-label="Primary">
-        <a href="/src/sitemap.html">Contents</a>
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
       </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>

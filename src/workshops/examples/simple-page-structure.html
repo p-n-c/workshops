@@ -9,15 +9,30 @@
     />
     <link rel="stylesheet" href="/src/style.css" />
     <title>Simple page structure</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body class="body">
     <header>
-      <h1>Simple page structure</h1>
-      <p>
-        Inside the header, some <code><strong>banner</strong></code> content
-      </p>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>Simple page structure</h1>
+        <p>
+          Inside the header, some <code><strong>banner</strong></code> content
+        </p>
+      </div>
     </header>
-    <main class="main">
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
       <article>
         <p>
           <code><strong>Main</strong></code> content
@@ -35,12 +50,15 @@
         >.
       </p>
     </main>
-    <footer>
+    <footer id="footer">
       <nav aria-label="Primary">
-        <code><strong>Navigation</strong></code> in the footer which takes the
-        role of
-        <code><strong>contentinfo</strong></code>
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
       </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>

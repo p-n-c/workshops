@@ -6,24 +6,39 @@
     <meta name="description" content="The People and Code workshop template" />
     <link rel="stylesheet" href="/src/style.css" />
     <title>Workshop template</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body class="body">
     <header>
-      <h1>Workshop template</h1>
-      <p>
-        <strong>Workshop subject</strong>
-      </p>
-      <p>
-        <small><em>Style: guided</em></small>
-      </p>
-      <p>
-        <small
-          ><em><time datetime="PT">Duration: duration</time></em></small
-        >
-      </p>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>Workshop template</h1>
+      </div>
     </header>
-    <main class="main">
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
       <article>
+        <p>
+          <strong>Workshop subject</strong>
+        </p>
+        <p>
+          <small><em>Style: guided</em></small>
+        </p>
+        <p>
+          <small
+            ><em><time datetime="PT">Duration: duration</time></em></small
+          >
+        </p>
         <section aria-labelledby="overview">
           <h2 id="overview">Overview</h2>
           <ul aria-label="workshop-outcomes">
@@ -71,10 +86,15 @@
         </section>
       </article>
     </main>
-    <footer>
+    <footer id="footer">
       <nav aria-label="Primary">
-        <a href="/src/sitemap.html">Contents</a>
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
       </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>

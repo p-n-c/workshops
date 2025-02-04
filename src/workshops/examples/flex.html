@@ -10,12 +10,27 @@
     <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/workshops/examples/flex.css" />
     <title>Page title</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body id="flex" class="body">
     <header>
-      <h1>CSS Flex examples</h1>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>CSS Flex examples</h1>
+      </div>
     </header>
-    <main id="flex-example" class="main">
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
       <p>
         Flex is a one-dimensional layout method for arranging items in rows or
         columns.
@@ -168,10 +183,15 @@
         </ul>
       </section>
     </main>
-    <footer>
+    <footer id="footer">
       <nav aria-label="Primary">
-        <a href="/src/sitemap.html">Contents</a>
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
       </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>

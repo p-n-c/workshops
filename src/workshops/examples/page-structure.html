@@ -8,16 +8,31 @@
       content="Page Structure Code Example from the W3C's guide to accessible web design and development"
     />
     <title>Page Structure</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body>
     <header>
-      <h1>Space Teddy Inc.</h1>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>Space Teddy Inc.</h1>
+      </div>
     </header>
     <nav aria-labelledby="mainnavheader">
       <h2 id="mainnavheader">Navigation Menu</h2>
       …
     </nav>
-    <main>
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
       <article>
         <h2>An inside look at the new Space Teddy 6</h2>
         <nav aria-labelledby="tocheader">
@@ -70,8 +85,15 @@
         </ul>
       </aside>
     </main>
-    <footer>
-      <p>© SpaceTeddy Inc.</p>
+    <footer id="footer">
+      <nav aria-label="Primary">
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
+      </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>

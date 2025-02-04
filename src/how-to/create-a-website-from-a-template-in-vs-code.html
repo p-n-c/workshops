@@ -9,10 +9,27 @@
     />
     <link rel="stylesheet" href="/src/style.css" />
     <title>Create a website from a template</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body class="body">
     <header>
-      <h1>Create a website from a template</h1>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>Create a website from a template</h1>
+      </div>
+    </header>
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
       <small>
         <p><em>Style: guided</em></p>
         <p>
@@ -35,8 +52,6 @@
         questions. You are required, however, to be familiar with web
         development and web development practices.
       </p>
-    </header>
-    <main class="main">
       <article aria-labelledby="how-to-run-a-project-in-vs-code">
         <h2 id="how-to-run-a-project-in-vs-code">Run a project in VS Code</h2>
         <p>
@@ -257,10 +272,15 @@
         </section>
       </section>
     </main>
-    <footer>
+    <footer id="footer">
       <nav aria-label="Primary">
-        <a href="/src/sitemap.html">Contents</a>
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
       </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>
