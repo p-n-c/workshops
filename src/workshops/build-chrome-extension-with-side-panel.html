@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The People and Code workshop template" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Build a Chrome Extension with a Side Panel | PaC Workshop</title>
+    <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
+  </head>
+  <body class="body">
+    <header>
+      <a href="#main" class="skip">Skip to main content</a>
+      <div>
+        <h1>Workshop: Build a Chrome Extension with a Side Panel</h1>
+      </div>
+    </header>
+    <main id="main" class="main">
+      <div class="byline">
+        <img
+          class="byline-logo"
+          src="/src/media/pac-logo.svg"
+          alt="People and code logo."
+        />
+        <div>
+          <div class="byline-brand">People and Code</div>
+          <div class="byline-tagline">At Your Disposal</div>
+        </div>
+      </div>
+      <article>
+        <p>
+          <strong
+            >Understand the data communication in a Chrome extension with a side
+            panel.</strong
+          >
+        </p>
+        <p>
+          <small><em>Style: guided</em></small>
+        </p>
+        <p>
+          <small
+            ><em><time datetime="PT1H30M">Duration: 1h30min</time></em></small
+          >
+        </p>
+        <section aria-labelledby="overview">
+          <h2 id="overview">Overview</h2>
+          Side panels are really useful to create a fully independent DOM for
+          your Chrome extension. But they can be tricky to manage. In this
+          workshop, we'll explore how you can reliably manage how to exchange
+          data between the side panel and the content via the service worker.
+
+          <ul aria-label="workshop-outcomes">
+            <li>Use the People and Code extension builder</li>
+            <li>Manage the state of the side panel</li>
+            <li>Understand the different contexts of an extension</li>
+            <li>
+              Establish reliable communication between the contexts of the
+              extension
+            </li>
+            <li>Call an external API from an extension</li>
+          </ul>
+        </section>
+        <section aria-labelledby="exercises">
+          <h2 id="exercises">Exercises</h2>
+          <ol aria-label="exercise-list">
+            <li>
+              <h3>Create an extension boilerplate</h3>
+              <ul arial-label="exercise-1-instructions">
+                <li>
+                  Clone and setup the People and Code
+                  <a href="https://github.com/p-n-c/chrome-extension-generator"
+                    >Chrome extension generator</a
+                  >
+                </li>
+                <li>
+                  Create an extension with side panel named "My Dictionary"
+                  (name the directory in kebab-case)
+                </li>
+                <li>
+                  Follow the instructions on screen and open the code in VS Code
+                  (see repo README for detailed instructions)
+                </li>
+                <li>
+                  Explore the code, look out for the following:
+                  <ul>
+                    <li>The utilities setup in the root directory</li>
+                    <li>
+                      The `support` directory with some extra tools to
+                      facilitate publication (not used here)
+                    </li>
+                    <li>
+                      The extension code in the <code>publish</code> directory
+                    </li>
+                    <li>
+                      The manifest (permission declarations, host permissions,
+                      the three different contexts: the background or service
+                      worker, the content scripts and the side panel)
+                    </li>
+                    <li>
+                      The subdirectories in <code>publish</code> that store the
+                      code of the different contexts. Note that the side panel
+                      has its own CSS and script(s).
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Load the extension locally on your Chromium browser (see repo
+                  README for detailed instructions), and run it as is. Open the
+                  different consoles and get a feel for who does what.
+                </li>
+              </ul>
+              <p>Congratulations! You now have your own local extension.</p>
+            </li>
+            <li><h3>Explore communication between the contexts</h3></li>
+            <li><h3>Call an external API and display the results</h3></li>
+          </ol>
+        </section>
+        <section aria-labelledby="summary">
+          <h2 id="summary">Summary</h2>
+        </section>
+        <section aria-labelledby="related-workshops">
+          <h2 id="related-workshops">Related workshops</h2>
+          <nav aria-label="Related workshops">
+            <ul>
+              <li>Related workshop</li>
+              <li>Related workshop</li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="how-to">
+          <h2 id="how-to">How to…</h2>
+          <nav aria-label="How to resources">
+            <ul>
+              <li>How tos…</li>
+            </ul>
+          </nav>
+        </section>
+        <section aria-labelledby="supporting-materials">
+          <h2 id="supporting-materials">Supporting materials</h2>
+          <ul>
+            <li>Supporting material…</li>
+          </ul>
+        </section>
+        <section aria-labelledby="further-reading">
+          <h2 id="further-reading">Further reading</h2>
+          <ul>
+            <li>Further reading…</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer id="footer">
+      <nav aria-label="Primary">
+        <a href="/src/index.html">Workshops</a>
+        <a href="/src/sitemap.html">Content</a>
+        <a href="https://people-and-code.com">PaC Website</a>
+      </nav>
+      <div class="copyright">
+        &copy; 2025 People and Code. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
