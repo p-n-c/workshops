@@ -44,10 +44,14 @@
         </p>
         <section aria-labelledby="overview">
           <h2 id="overview">Overview</h2>
-          Side panels are really useful to create a fully independent DOM for
-          your Chrome extension. But they can be tricky to manage. In this
-          workshop, we'll explore how you can reliably manage how to exchange
-          data between the side panel and the content via the service worker.
+          <p>
+            Side panels are really useful to create a fully independent DOM for
+            your Chrome extension. But they can be tricky to manage. In this
+            workshop, we'll explore how you can reliably exchange data between
+            the side panel and the content via the service worker.
+          </p>
+
+          <p>You will:</p>
 
           <ul aria-label="workshop-outcomes">
             <li>Use the People and Code extension builder</li>
@@ -78,41 +82,199 @@
                 </li>
                 <li>
                   Follow the instructions on screen and open the code in VS Code
-                  (see repo README for detailed instructions)
+                  (see the repo README for detailed instructions)
                 </li>
                 <li>
-                  Explore the code, look out for the following:
+                  Explore the code, here are some guiding questions:
                   <ul>
-                    <li>The utilities setup in the root directory</li>
+                    <li>What coding tools are used and how are they setup?</li>
                     <li>
-                      The `support` directory with some extra tools to
-                      facilitate publication (not used here)
+                      What does the <code>support</code> directory contain?
+                    </li>
+                    <li>Where is the extension code located?</li>
+                    <li>
+                      What permissions are declared in the manifest? What are
+                      they for? (<a
+                        href="https://developer.chrome.com/docs/extensions/reference/permissions-list"
+                        >Extension permission list</a
+                      >)
                     </li>
                     <li>
-                      The extension code in the <code>publish</code> directory
+                      What are the different extension contexts and how are they
+                      segregated?
                     </li>
                     <li>
-                      The manifest (permission declarations, host permissions,
-                      the three different contexts: the background or service
-                      worker, the content scripts and the side panel)
-                    </li>
-                    <li>
-                      The subdirectories in <code>publish</code> that store the
-                      code of the different contexts. Note that the side panel
-                      has its own CSS and script(s).
+                      What are the coding differences between the contexts (e.g.
+                      declaration in the manifest, coding style)?
                     </li>
                   </ul>
                 </li>
                 <li>
-                  Load the extension locally on your Chromium browser (see repo
-                  README for detailed instructions), and run it as is. Open the
-                  different consoles and get a feel for who does what.
+                  Load the extension locally on your Chromium browser (see the
+                  repo README for detailed instructions), and run it as is. Open
+                  the different consoles and get a feel for how the code works
+                  in practice. Look out for the management of the side panel
+                  state. What happens when you follow a link in the same tab?
+                  When you change tabs?
                 </li>
               </ul>
               <p>Congratulations! You now have your own local extension.</p>
             </li>
-            <li><h3>Explore communication between the contexts</h3></li>
-            <li><h3>Call an external API and display the results</h3></li>
+            <li>
+              <h3>Explore communication between the contexts</h3>
+              <p>
+                We'll now start to build the dictionary functionality in the
+                extension. First we'll create a context menu in the main page:
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    In the service worker, create an entry in the context menu
+                    using the
+                    <a
+                      href="https://developer.chrome.com/docs/extensions/reference/api/contextMenus"
+                      >chrome.contextMenus API</a
+                    >. Use the following <code>CreateProperties</code> objects
+                    as input:
+                  </p>
+                  <pre><code>{
+                  &nbsp;&nbsp;id: 'my-dictionary',
+                  &nbsp;&nbsp;contexts: ['selection'],
+                  &nbsp;&nbsp;title: 'Meaning of "%s"',
+                  }</code></pre>
+                  <p>
+                    Wrap it with a <code>chrome.runtime.onInstalled</code> event
+                    listener to install the context menu entry only once.
+                  </p>
+                  <p>
+                    Try it out. Do you get an error in the extension console?
+                    Have we forgotten something?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Let's pass the selected word to the side panel. Add an event
+                    listener for the
+                    <code>chrome.contextMenus.onClicked</code> action. The
+                    callback takes 2 arguments:
+                  </p>
+                  <ul>
+                    <li>
+                      <code>info</code>:
+                      <a
+                        href="https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-OnClickData"
+                        >Information sent</a
+                      >
+                      when a context menu item is clicked. We'll use the
+                      <code>menuItemId</code> and the
+                      <code>selectionText</code> properties
+                    </li>
+                    <li>
+                      <code>tab</code>: Information about the tab (we'll use it
+                      later)
+                    </li>
+                  </ul>
+                  <p>
+                    Get the callback to only process the selected word when the
+                    <code>my-dictionary</code> menu item is selected.
+                  </p>
+                  <p>
+                    To pass the selected text to the side panel, a few things
+                    have to happen:
+                  </p>
+                  <ol type="i">
+                    <li>
+                      Make sure the side panel is open. Check the event listener
+                      for <code>chrome.action.onClicked</code> for hints.
+                      Remember to handle the local cache
+                      <em>afterwards</em> otherwise
+                      <code>chrome.sidePanel.open</code> won't work.
+                    </li>
+                    <li>
+                      <p>
+                        Send the word to the side panel using
+                        <code>chrome.runtime.sendMessage</code> with just a
+                        message object. Use the following template (we'll expand
+                        it with the definition in the next section):
+                      </p>
+                      <pre><code>{
+                      &nbsp;&nbsp;from: 'service-worker',
+                      &nbsp;&nbsp;action: 'send-definition',
+                      &nbsp;&nbsp;word: // the selected word
+                      }</code></pre>
+                      <p>
+                        Try the context menu, the side panel should open and its
+                        console should tell you it received a message.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        In the side panel, handle the message to display the
+                        word inside the <code>div#message</code> element.
+                      </p>
+                    </li>
+                  </ol>
+                </li>
+              </ul>
+              You have now established a communication with your side panel.
+            </li>
+            <li>
+              <h3>Call an external API and display the results</h3>
+              <p>
+                In this section, we will call the
+                <a href="https://dictionaryapi.dev/">Dictionary API</a>, display
+                the results, and highlight the word in the DOM to illustrate
+                that communication aspect.
+              </p>
+              <ul>
+                <li>
+                  Before sending the word to the API, turn it into lower case
+                  and trim any spaces
+                </li>
+                <li>
+                  Use the <code>fetch</code> API asynchronously to get the
+                  Dictionary API response.
+                </li>
+                <li>
+                  Use the
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Response/json"
+                    >json()</a
+                  >
+                  method asynchronously to extract a JSON version of the API
+                  response.
+                </li>
+                <li>
+                  Send the result to the side panel in a new field with key
+                  `definition`
+                </li>
+                <li>
+                  Display the full API response in the side panel using
+                  <code>JSON.stringify()</code>. Use the side panel CSS to make
+                  it as fancy as you like.
+                </li>
+                <li>
+                  <p>
+                    In the main window, we'd like to get a simple feedback of
+                    whether a definition has been found. Maybe a highlight or
+                    anything that you'd find relevant.
+                  </p>
+                  <p>
+                    To feedback that, you can send a message using the
+                    <a href=""><code>chrome.tabs.sendMessage</code></a>
+                    method in the service worker. Check the
+                    <code>closeSidePanel</code> and
+                    <code>handlePanelOpening</code> functions for inspiration
+                    and handle your message in the content script.
+                  </p>
+                  <p>
+                    <b>Tip</b>: Remember to reload your page
+                    <em>after</em> reloading your extension when working with
+                    content scripts!
+                  </p>
+                </li>
+              </ul>
+            </li>
           </ol>
         </section>
         <section aria-labelledby="summary">
