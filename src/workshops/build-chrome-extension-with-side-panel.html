@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The People and Code workshop template" />
     <link rel="stylesheet" href="/src/style.css" />
-    <title>Build a Chrome Extension with a Side Panel | PaC Workshop</title>
+    <title>
+      Build a Chrome Extension with a Side Panel | Workshop | People and Code
+    </title>
     <link rel="icon" type="image/x-icon" href="/src/media/favicon.ico" />
   </head>
   <body class="body">
@@ -71,13 +73,13 @@
               <h3>Create an extension boilerplate</h3>
               <ul arial-label="exercise-1-instructions">
                 <li>
-                  Clone and setup the People and Code
+                  Clone and set up the People and Code
                   <a href="https://github.com/p-n-c/chrome-extension-generator"
                     >Chrome extension generator</a
                   >
                 </li>
                 <li>
-                  Create an extension with side panel named "My Dictionary"
+                  Create an extension with side panel named &#x2018My Dictionary&#x2019
                   (name the directory in kebab-case)
                 </li>
                 <li>
@@ -240,7 +242,12 @@
                 </li>
                 <li>
                   Use the <code>fetch</code> API asynchronously to get the
-                  Dictionary API response.
+                  Dictionary API response. Do we need extra
+                  <a
+                    href="https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions#host-permissions"
+                    >permissions</a
+                  >
+                  to call an external API?
                 </li>
                 <li>
                   Use the
@@ -286,35 +293,76 @@
         </section>
         <section aria-labelledby="summary">
           <h2 id="summary">Summary</h2>
-        </section>
-        <section aria-labelledby="related-workshops">
-          <h2 id="related-workshops">Related workshops</h2>
-          <nav aria-label="Related workshops">
-            <ul>
-              <li>Related workshop</li>
-              <li>Related workshop</li>
-            </ul>
-          </nav>
-        </section>
-        <section aria-labelledby="how-to">
-          <h2 id="how-to">How to…</h2>
-          <nav aria-label="How to resources">
-            <ul>
-              <li>How tos…</li>
-            </ul>
-          </nav>
+          <p>
+            To build a Chrome extension, you need to pay attention to a few
+            important details:
+          </p>
+          <ul>
+            <li>
+              Declare the appropriate permissions for the actions you want to
+              accomplish
+            </li>
+            <li>
+              Be aware of the different contexts (content, service worker and
+              side panel) and how to communicate effectively between them
+            </li>
+            <li>
+              Manage the state of the side panel and its reaction to user
+              actions in the content
+            </li>
+            <li>
+              Make sure the browser has the latest version loaded and the
+              content scripts are updated
+            </li>
+          </ul>
+          <p>
+            Using the People and Code
+            <a href="https://github.com/p-n-c/chrome-extension-generator"
+              >extension generator</a
+            >
+            can help you get the basics sorted. After that, it's a matter of
+            experimenting.
+          </p>
         </section>
         <section aria-labelledby="supporting-materials">
           <h2 id="supporting-materials">Supporting materials</h2>
           <ul>
-            <li>Supporting material…</li>
+            <li>
+              <a
+                href="https://developer.chrome.com/docs/extensions/reference/permissions-list"
+                >Chrome extension permissions list</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.chrome.com/docs/extensions/reference/manifest"
+                >Manifest file format</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.chrome.com/docs/extensions/reference/api/sidePanel"
+                >Side panel API</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/GoogleChrome/chrome-extensions-samples/tree/main"
+                >Chrome extension samples</a
+              >
+            </li>
           </ul>
         </section>
         <section aria-labelledby="further-reading">
           <h2 id="further-reading">Further reading</h2>
-          <ul>
-            <li>Further reading…</li>
-          </ul>
+          <p>
+            Once you're happy with your extension, you can share it on the
+            Chrome Web Store. We wrote a simple tutorial on how to
+            <a
+              href="https://people-and-code.com/how-to/build-and-distribute-a-chrome-extension"
+              >build and distribute a Chrome extension</a
+            >.
+          </p>
         </section>
       </article>
     </main>
